@@ -27,8 +27,8 @@ class LibraryDefinition extends Equatable with DataPrinter {
 
   @override
   Map<String, Object> get namedProps => {
-        'basename': basename,
-        'queries': queries,
-        'customImports': customImports,
-      };
+    'basename': basename,
+    'queries': queries,
+    'customImports': customImports,
+  };
 }

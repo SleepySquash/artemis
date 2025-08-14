@@ -1,5 +1,4 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// @dart = 2.12
 
 import 'package:artemis/artemis.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -20,6 +19,7 @@ class BigQuery$Query$Charmander extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [number, types];
+
   @override
   Map<String, dynamic> toJson() => _$BigQuery$Query$CharmanderToJson(this);
 }
@@ -30,8 +30,8 @@ class BigQuery$Query$Pokemon$Evolutions extends JsonSerializable
   BigQuery$Query$Pokemon$Evolutions();
 
   factory BigQuery$Query$Pokemon$Evolutions.fromJson(
-          Map<String, dynamic> json) =>
-      _$BigQuery$Query$Pokemon$EvolutionsFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$BigQuery$Query$Pokemon$EvolutionsFromJson(json);
 
   String? number;
 
@@ -39,6 +39,7 @@ class BigQuery$Query$Pokemon$Evolutions extends JsonSerializable
 
   @override
   List<Object?> get props => [number, name];
+
   @override
   Map<String, dynamic> toJson() =>
       _$BigQuery$Query$Pokemon$EvolutionsToJson(this);
@@ -61,6 +62,7 @@ class BigQuery$Query$Pokemon extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [number, name, types, evolutions];
+
   @override
   Map<String, dynamic> toJson() => _$BigQuery$Query$PokemonToJson(this);
 }
@@ -78,6 +80,7 @@ class BigQuery$Query extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [charmander, pokemons];
+
   @override
   Map<String, dynamic> toJson() => _$BigQuery$QueryToJson(this);
 }
@@ -94,96 +97,122 @@ class BigQueryArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [quantity];
+
   @override
   Map<String, dynamic> toJson() => _$BigQueryArgumentsToJson(this);
 }
 
-final BIG_QUERY_QUERY_DOCUMENT = DocumentNode(definitions: [
-  OperationDefinitionNode(
+final BIG_QUERY_QUERY_DOCUMENT_OPERATION_NAME = 'big_query';
+final BIG_QUERY_QUERY_DOCUMENT = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'big_query'),
       variableDefinitions: [
         VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'quantity')),
-            type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: true),
-            defaultValue: DefaultValueNode(value: null),
-            directives: [])
+          variable: VariableNode(name: NameNode(value: 'quantity')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: true),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
       ],
       directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
             name: NameNode(value: 'pokemon'),
             alias: NameNode(value: 'charmander'),
             arguments: [
               ArgumentNode(
-                  name: NameNode(value: 'name'),
-                  value: StringValueNode(value: 'Charmander', isBlock: false))
+                name: NameNode(value: 'name'),
+                value: StringValueNode(value: 'Charmander', isBlock: false),
+              ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
                   name: NameNode(value: 'number'),
                   alias: null,
                   arguments: [],
                   directives: [],
-                  selectionSet: null),
-              FieldNode(
+                  selectionSet: null,
+                ),
+                FieldNode(
                   name: NameNode(value: 'types'),
                   alias: null,
                   arguments: [],
                   directives: [],
-                  selectionSet: null)
-            ])),
-        FieldNode(
+                  selectionSet: null,
+                ),
+              ],
+            ),
+          ),
+          FieldNode(
             name: NameNode(value: 'pokemons'),
             alias: null,
             arguments: [
               ArgumentNode(
-                  name: NameNode(value: 'first'),
-                  value: VariableNode(name: NameNode(value: 'quantity')))
+                name: NameNode(value: 'first'),
+                value: VariableNode(name: NameNode(value: 'quantity')),
+              ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
                   name: NameNode(value: 'number'),
                   alias: null,
                   arguments: [],
                   directives: [],
-                  selectionSet: null),
-              FieldNode(
+                  selectionSet: null,
+                ),
+                FieldNode(
                   name: NameNode(value: 'name'),
                   alias: null,
                   arguments: [],
                   directives: [],
-                  selectionSet: null),
-              FieldNode(
+                  selectionSet: null,
+                ),
+                FieldNode(
                   name: NameNode(value: 'types'),
                   alias: null,
                   arguments: [],
                   directives: [],
-                  selectionSet: null),
-              FieldNode(
+                  selectionSet: null,
+                ),
+                FieldNode(
                   name: NameNode(value: 'evolutions'),
                   alias: NameNode(value: 'evolutions'),
                   arguments: [],
                   directives: [],
-                  selectionSet: SelectionSetNode(selections: [
-                    FieldNode(
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FieldNode(
                         name: NameNode(value: 'number'),
                         alias: null,
                         arguments: [],
                         directives: [],
-                        selectionSet: null),
-                    FieldNode(
+                        selectionSet: null,
+                      ),
+                      FieldNode(
                         name: NameNode(value: 'name'),
                         alias: null,
                         arguments: [],
                         directives: [],
-                        selectionSet: null)
-                  ]))
-            ]))
-      ]))
-]);
+                        selectionSet: null,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    ),
+  ],
+);
 
 class BigQueryQuery extends GraphQLQuery<BigQuery$Query, BigQueryArguments> {
   BigQueryQuery({required this.variables});
@@ -192,13 +221,14 @@ class BigQueryQuery extends GraphQLQuery<BigQuery$Query, BigQueryArguments> {
   final DocumentNode document = BIG_QUERY_QUERY_DOCUMENT;
 
   @override
-  final String operationName = 'big_query';
+  final String operationName = BIG_QUERY_QUERY_DOCUMENT_OPERATION_NAME;
 
   @override
   final BigQueryArguments variables;
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   BigQuery$Query parse(Map<String, dynamic> json) =>
       BigQuery$Query.fromJson(json);

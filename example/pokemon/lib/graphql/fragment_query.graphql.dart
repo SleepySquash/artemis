@@ -1,5 +1,4 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// @dart = 2.12
 
 import 'package:artemis/artemis.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -23,6 +22,7 @@ class FragmentQuery$Query$Charmander extends JsonSerializable
 
   @override
   List<Object?> get props => [number, name, types];
+
   @override
   Map<String, dynamic> toJson() => _$FragmentQuery$Query$CharmanderToJson(this);
 }
@@ -33,11 +33,12 @@ class FragmentQuery$Query$Pokemon$Evolutions extends JsonSerializable
   FragmentQuery$Query$Pokemon$Evolutions();
 
   factory FragmentQuery$Query$Pokemon$Evolutions.fromJson(
-          Map<String, dynamic> json) =>
-      _$FragmentQuery$Query$Pokemon$EvolutionsFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$FragmentQuery$Query$Pokemon$EvolutionsFromJson(json);
 
   @override
   List<Object?> get props => [number, name, types];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FragmentQuery$Query$Pokemon$EvolutionsToJson(this);
@@ -55,6 +56,7 @@ class FragmentQuery$Query$Pokemon extends JsonSerializable
 
   @override
   List<Object?> get props => [number, name, types, evolutions];
+
   @override
   Map<String, dynamic> toJson() => _$FragmentQuery$Query$PokemonToJson(this);
 }
@@ -72,6 +74,7 @@ class FragmentQuery$Query extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [charmander, pokemons];
+
   @override
   Map<String, dynamic> toJson() => _$FragmentQuery$QueryToJson(this);
 }
@@ -88,86 +91,117 @@ class FragmentQueryArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [quantity];
+
   @override
   Map<String, dynamic> toJson() => _$FragmentQueryArgumentsToJson(this);
 }
 
-final FRAGMENT_QUERY_QUERY_DOCUMENT = DocumentNode(definitions: [
-  OperationDefinitionNode(
+final FRAGMENT_QUERY_QUERY_DOCUMENT_OPERATION_NAME = 'fragmentQuery';
+final FRAGMENT_QUERY_QUERY_DOCUMENT = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'fragmentQuery'),
       variableDefinitions: [
         VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'quantity')),
-            type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: true),
-            defaultValue: DefaultValueNode(value: null),
-            directives: [])
+          variable: VariableNode(name: NameNode(value: 'quantity')),
+          type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: true),
+          defaultValue: DefaultValueNode(value: null),
+          directives: [],
+        ),
       ],
       directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
             name: NameNode(value: 'pokemon'),
             alias: NameNode(value: 'charmander'),
             arguments: [
               ArgumentNode(
-                  name: NameNode(value: 'name'),
-                  value: StringValueNode(value: 'Charmander', isBlock: false))
+                name: NameNode(value: 'name'),
+                value: StringValueNode(value: 'Charmander', isBlock: false),
+              ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                  name: NameNode(value: 'PokemonParts'), directives: [])
-            ])),
-        FieldNode(
+            selectionSet: SelectionSetNode(
+              selections: [
+                FragmentSpreadNode(
+                  name: NameNode(value: 'PokemonParts'),
+                  directives: [],
+                ),
+              ],
+            ),
+          ),
+          FieldNode(
             name: NameNode(value: 'pokemons'),
             alias: null,
             arguments: [
               ArgumentNode(
-                  name: NameNode(value: 'first'),
-                  value: VariableNode(name: NameNode(value: 'quantity')))
+                name: NameNode(value: 'first'),
+                value: VariableNode(name: NameNode(value: 'quantity')),
+              ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FragmentSpreadNode(
-                  name: NameNode(value: 'PokemonParts'), directives: []),
-              FieldNode(
+            selectionSet: SelectionSetNode(
+              selections: [
+                FragmentSpreadNode(
+                  name: NameNode(value: 'PokemonParts'),
+                  directives: [],
+                ),
+                FieldNode(
                   name: NameNode(value: 'evolutions'),
                   alias: NameNode(value: 'evolutions'),
                   arguments: [],
                   directives: [],
-                  selectionSet: SelectionSetNode(selections: [
-                    FragmentSpreadNode(
-                        name: NameNode(value: 'PokemonParts'), directives: [])
-                  ]))
-            ]))
-      ])),
-  FragmentDefinitionNode(
+                  selectionSet: SelectionSetNode(
+                    selections: [
+                      FragmentSpreadNode(
+                        name: NameNode(value: 'PokemonParts'),
+                        directives: [],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    ),
+    FragmentDefinitionNode(
       name: NameNode(value: 'PokemonParts'),
       typeCondition: TypeConditionNode(
-          on: NamedTypeNode(
-              name: NameNode(value: 'Pokemon'), isNonNull: false)),
+        on: NamedTypeNode(name: NameNode(value: 'Pokemon'), isNonNull: false),
+      ),
       directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
             name: NameNode(value: 'number'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: null),
-        FieldNode(
+            selectionSet: null,
+          ),
+          FieldNode(
             name: NameNode(value: 'name'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: null),
-        FieldNode(
+            selectionSet: null,
+          ),
+          FieldNode(
             name: NameNode(value: 'types'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: null)
-      ]))
-]);
+            selectionSet: null,
+          ),
+        ],
+      ),
+    ),
+  ],
+);
 
 class FragmentQueryQuery
     extends GraphQLQuery<FragmentQuery$Query, FragmentQueryArguments> {
@@ -177,13 +211,14 @@ class FragmentQueryQuery
   final DocumentNode document = FRAGMENT_QUERY_QUERY_DOCUMENT;
 
   @override
-  final String operationName = 'fragmentQuery';
+  final String operationName = FRAGMENT_QUERY_QUERY_DOCUMENT_OPERATION_NAME;
 
   @override
   final FragmentQueryArguments variables;
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   FragmentQuery$Query parse(Map<String, dynamic> json) =>
       FragmentQuery$Query.fromJson(json);

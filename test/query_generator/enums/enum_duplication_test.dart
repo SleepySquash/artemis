@@ -32,9 +32,7 @@ void main() {
         ''',
         libraryDefinition: libraryDefinition,
         generatedFile: generatedFile,
-        sourceAssetsMap: {
-          'a|queries/another_query.graphql': anotherQuery,
-        },
+        sourceAssetsMap: {'a|queries/another_query.graphql': anotherQuery},
       ),
     );
   });
@@ -56,85 +54,104 @@ const anotherQuery = r'''
   }
 ''';
 
-final LibraryDefinition libraryDefinition =
-    LibraryDefinition(basename: r'query.graphql', queries: [
-  QueryDefinition(
+final LibraryDefinition libraryDefinition = LibraryDefinition(
+  basename: r'query.graphql',
+  queries: [
+    QueryDefinition(
       name: QueryName(name: r'Custom$_Query'),
       operationName: r'custom',
       classes: [
-        EnumDefinition(name: EnumName(name: r'MyEnum'), values: [
-          EnumValueDefinition(name: EnumValueName(name: r'A')),
-          EnumValueDefinition(name: EnumValueName(name: r'B')),
-          EnumValueDefinition(name: EnumValueName(name: r'ARTEMIS_UNKNOWN'))
-        ]),
+        EnumDefinition(
+          name: EnumName(name: r'MyEnum'),
+          values: [
+            EnumValueDefinition(name: EnumValueName(name: r'A')),
+            EnumValueDefinition(name: EnumValueName(name: r'B')),
+            EnumValueDefinition(name: EnumValueName(name: r'ARTEMIS_UNKNOWN')),
+          ],
+        ),
         ClassDefinition(
-            name: ClassName(name: r'Custom$_Query$_q'),
-            properties: [
-              ClassProperty(
-                  type: TypeName(name: r'MyEnum'),
-                  name: ClassPropertyName(name: r'e'),
-                  annotations: [
-                    r'JsonKey(unknownEnumValue: MyEnum.artemisUnknown)'
-                  ],
-                  isResolveType: false)
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: false),
+          name: ClassName(name: r'Custom$_Query$_q'),
+          properties: [
+            ClassProperty(
+              type: TypeName(name: r'MyEnum'),
+              name: ClassPropertyName(name: r'e'),
+              annotations: [
+                r'JsonKey(unknownEnumValue: MyEnum.artemisUnknown)',
+              ],
+              isResolveType: false,
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: false,
+        ),
         ClassDefinition(
-            name: ClassName(name: r'Custom$_Query'),
-            properties: [
-              ClassProperty(
-                  type: TypeName(name: r'Custom$_Query$_q'),
-                  name: ClassPropertyName(name: r'q'),
-                  isResolveType: false)
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: false)
+          name: ClassName(name: r'Custom$_Query'),
+          properties: [
+            ClassProperty(
+              type: TypeName(name: r'Custom$_Query$_q'),
+              name: ClassPropertyName(name: r'q'),
+              isResolveType: false,
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: false,
+        ),
       ],
       generateHelpers: false,
-      suffix: r'Query'),
-  QueryDefinition(
+      suffix: r'Query',
+    ),
+    QueryDefinition(
       name: QueryName(name: r'CustomList$_Query'),
       operationName: r'customList',
       classes: [
-        EnumDefinition(name: EnumName(name: r'MyEnum'), values: [
-          EnumValueDefinition(name: EnumValueName(name: r'A')),
-          EnumValueDefinition(name: EnumValueName(name: r'B')),
-          EnumValueDefinition(name: EnumValueName(name: r'ARTEMIS_UNKNOWN'))
-        ]),
+        EnumDefinition(
+          name: EnumName(name: r'MyEnum'),
+          values: [
+            EnumValueDefinition(name: EnumValueName(name: r'A')),
+            EnumValueDefinition(name: EnumValueName(name: r'B')),
+            EnumValueDefinition(name: EnumValueName(name: r'ARTEMIS_UNKNOWN')),
+          ],
+        ),
         ClassDefinition(
-            name: ClassName(name: r'CustomList$_Query$_qList'),
-            properties: [
-              ClassProperty(
-                  type: TypeName(name: r'MyEnum'),
-                  name: ClassPropertyName(name: r'e'),
-                  annotations: [
-                    r'JsonKey(unknownEnumValue: MyEnum.artemisUnknown)'
-                  ],
-                  isResolveType: false)
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: false),
+          name: ClassName(name: r'CustomList$_Query$_qList'),
+          properties: [
+            ClassProperty(
+              type: TypeName(name: r'MyEnum'),
+              name: ClassPropertyName(name: r'e'),
+              annotations: [
+                r'JsonKey(unknownEnumValue: MyEnum.artemisUnknown)',
+              ],
+              isResolveType: false,
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: false,
+        ),
         ClassDefinition(
-            name: ClassName(name: r'CustomList$_Query'),
-            properties: [
-              ClassProperty(
-                  type: ListOfTypeName(
-                      typeName: TypeName(name: r'CustomList$_Query$_qList'),
-                      isNonNull: false),
-                  name: ClassPropertyName(name: r'qList'),
-                  isResolveType: false)
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: false)
+          name: ClassName(name: r'CustomList$_Query'),
+          properties: [
+            ClassProperty(
+              type: ListOfTypeName(
+                typeName: TypeName(name: r'CustomList$_Query$_qList'),
+                isNonNull: false,
+              ),
+              name: ClassPropertyName(name: r'qList'),
+              isResolveType: false,
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: false,
+        ),
       ],
       generateHelpers: false,
-      suffix: r'Query')
-]);
+      suffix: r'Query',
+    ),
+  ],
+);
 
 const generatedFile = r'''// GENERATED CODE - DO NOT MODIFY BY HAND
 

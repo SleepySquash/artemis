@@ -39,9 +39,10 @@ const query = r'''
   }
 ''';
 
-final LibraryDefinition libraryDefinition =
-    LibraryDefinition(basename: r'query.graphql', queries: [
-  QueryDefinition(
+final LibraryDefinition libraryDefinition = LibraryDefinition(
+  basename: r'query.graphql',
+  queries: [
+    QueryDefinition(
       document: parseString(query),
       name: QueryName(name: r'SomeQuery$_QueryResponse'),
       operationName: 'some_query',
@@ -51,40 +52,36 @@ final LibraryDefinition libraryDefinition =
           values: [
             EnumValueDefinition(
               name: EnumValueName(name: 'NEW_HOPE'),
-              annotations: [
-                r"Deprecated('deprecated movie')",
-              ],
+              annotations: [r"Deprecated('deprecated movie')"],
             ),
-            EnumValueDefinition(
-              name: EnumValueName(name: 'EMPIRE'),
-            ),
-            EnumValueDefinition(
-              name: EnumValueName(name: 'JEDI'),
-            ),
-            EnumValueDefinition(
-              name: EnumValueName(name: 'ARTEMIS_UNKNOWN'),
-            ),
+            EnumValueDefinition(name: EnumValueName(name: 'EMPIRE')),
+            EnumValueDefinition(name: EnumValueName(name: 'JEDI')),
+            EnumValueDefinition(name: EnumValueName(name: 'ARTEMIS_UNKNOWN')),
           ],
         ),
         ClassDefinition(
-            name: ClassName(name: r'SomeQuery$_QueryResponse'),
-            properties: [
-              ClassProperty(
-                  type: TypeName(name: r'StarWarsMovies'),
-                  name: ClassPropertyName(name: r'someValue'),
-                  // isOverride: false,
+          name: ClassName(name: r'SomeQuery$_QueryResponse'),
+          properties: [
+            ClassProperty(
+              type: TypeName(name: r'StarWarsMovies'),
+              name: ClassPropertyName(name: r'someValue'),
 
-                  annotations: [
-                    r'JsonKey(unknownEnumValue: StarWarsMovies.artemisUnknown)',
-                  ])
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: false)
+              // isOverride: false,
+              annotations: [
+                r'JsonKey(unknownEnumValue: StarWarsMovies.artemisUnknown)',
+              ],
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: false,
+        ),
       ],
       generateHelpers: false,
-      suffix: r'Query')
-]);
+      suffix: r'Query',
+    ),
+  ],
+);
 
 const generatedFile = r'''// GENERATED CODE - DO NOT MODIFY BY HAND
 

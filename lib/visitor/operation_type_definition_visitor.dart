@@ -6,9 +6,7 @@ class OperationTypeDefinitionNodeVisitor extends RecursiveVisitor {
   Iterable<OperationTypeDefinitionNode> types = [];
 
   @override
-  void visitOperationTypeDefinitionNode(
-    OperationTypeDefinitionNode node,
-  ) {
+  void visitOperationTypeDefinitionNode(OperationTypeDefinitionNode node) {
     types = types.followedBy([node]);
     super.visitOperationTypeDefinitionNode(node);
   }

@@ -30,9 +30,7 @@ void main() {
         ''',
         libraryDefinition: libraryDefinition,
         generatedFile: generatedFile,
-        sourceAssetsMap: {
-          'a|queries/another_query.graphql': anotherQuery,
-        },
+        sourceAssetsMap: {'a|queries/another_query.graphql': anotherQuery},
         generateHelpers: true,
       ),
     );
@@ -55,101 +53,120 @@ mutation customList($input: [Input!]!) {
 }
 ''';
 
-final LibraryDefinition libraryDefinition =
-    LibraryDefinition(basename: r'query.graphql', queries: [
-  QueryDefinition(
+final LibraryDefinition libraryDefinition = LibraryDefinition(
+  basename: r'query.graphql',
+  queries: [
+    QueryDefinition(
       name: QueryName(name: r'Custom$_Mutation'),
       operationName: r'custom',
       classes: [
         ClassDefinition(
-            name: ClassName(name: r'Custom$_Mutation$_mut'),
-            properties: [
-              ClassProperty(
-                  type: DartTypeName(name: r'String'),
-                  name: ClassPropertyName(name: r's'),
-                  isResolveType: false)
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: false),
+          name: ClassName(name: r'Custom$_Mutation$_mut'),
+          properties: [
+            ClassProperty(
+              type: DartTypeName(name: r'String'),
+              name: ClassPropertyName(name: r's'),
+              isResolveType: false,
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: false,
+        ),
         ClassDefinition(
-            name: ClassName(name: r'Custom$_Mutation'),
-            properties: [
-              ClassProperty(
-                  type: TypeName(name: r'Custom$_Mutation$_mut'),
-                  name: ClassPropertyName(name: r'mut'),
-                  isResolveType: false)
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: false),
+          name: ClassName(name: r'Custom$_Mutation'),
+          properties: [
+            ClassProperty(
+              type: TypeName(name: r'Custom$_Mutation$_mut'),
+              name: ClassPropertyName(name: r'mut'),
+              isResolveType: false,
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: false,
+        ),
         ClassDefinition(
-            name: ClassName(name: r'Input'),
-            properties: [
-              ClassProperty(
-                  type: DartTypeName(name: r'String', isNonNull: true),
-                  name: ClassPropertyName(name: r's'),
-                  isResolveType: false)
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: true)
+          name: ClassName(name: r'Input'),
+          properties: [
+            ClassProperty(
+              type: DartTypeName(name: r'String', isNonNull: true),
+              name: ClassPropertyName(name: r's'),
+              isResolveType: false,
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: true,
+        ),
       ],
       inputs: [
         QueryInput(
-            type: TypeName(name: r'Input', isNonNull: true),
-            name: QueryInputName(name: r'input'))
+          type: TypeName(name: r'Input', isNonNull: true),
+          name: QueryInputName(name: r'input'),
+        ),
       ],
       generateHelpers: true,
-      suffix: r'Mutation'),
-  QueryDefinition(
+      suffix: r'Mutation',
+    ),
+    QueryDefinition(
       name: QueryName(name: r'CustomList$_Mutation'),
       operationName: r'customList',
       classes: [
         ClassDefinition(
-            name: ClassName(name: r'CustomList$_Mutation$_mutList'),
-            properties: [
-              ClassProperty(
-                  type: DartTypeName(name: r'String'),
-                  name: ClassPropertyName(name: r's'),
-                  isResolveType: false)
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: false),
+          name: ClassName(name: r'CustomList$_Mutation$_mutList'),
+          properties: [
+            ClassProperty(
+              type: DartTypeName(name: r'String'),
+              name: ClassPropertyName(name: r's'),
+              isResolveType: false,
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: false,
+        ),
         ClassDefinition(
-            name: ClassName(name: r'CustomList$_Mutation'),
-            properties: [
-              ClassProperty(
-                  type: TypeName(name: r'CustomList$_Mutation$_mutList'),
-                  name: ClassPropertyName(name: r'mutList'),
-                  isResolveType: false)
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: false),
+          name: ClassName(name: r'CustomList$_Mutation'),
+          properties: [
+            ClassProperty(
+              type: TypeName(name: r'CustomList$_Mutation$_mutList'),
+              name: ClassPropertyName(name: r'mutList'),
+              isResolveType: false,
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: false,
+        ),
         ClassDefinition(
-            name: ClassName(name: r'Input'),
-            properties: [
-              ClassProperty(
-                  type: DartTypeName(name: r'String', isNonNull: true),
-                  name: ClassPropertyName(name: r's'),
-                  isResolveType: false)
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: true)
+          name: ClassName(name: r'Input'),
+          properties: [
+            ClassProperty(
+              type: DartTypeName(name: r'String', isNonNull: true),
+              name: ClassPropertyName(name: r's'),
+              isResolveType: false,
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: true,
+        ),
       ],
       inputs: [
         QueryInput(
-            type: ListOfTypeName(
-                typeName: TypeName(name: r'Input', isNonNull: true),
-                isNonNull: true),
-            name: QueryInputName(name: r'input'))
+          type: ListOfTypeName(
+            typeName: TypeName(name: r'Input', isNonNull: true),
+            isNonNull: true,
+          ),
+          name: QueryInputName(name: r'input'),
+        ),
       ],
       generateHelpers: true,
-      suffix: r'Mutation')
-]);
+      suffix: r'Mutation',
+    ),
+  ],
+);
 
 const generatedFile = r'''// GENERATED CODE - DO NOT MODIFY BY HAND
 

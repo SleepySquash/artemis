@@ -98,14 +98,16 @@ const String introspectionQuery = '''
   }
 ''';
 
-Future<String> fetchGraphQLSchemaStringFromURL(String graphqlEndpoint,
-    {http.Client? client}) async {
+Future<String> fetchGraphQLSchemaStringFromURL(
+  String graphqlEndpoint, {
+  http.Client? client,
+}) async {
   final httpClient = client ?? http.Client();
 
-  final response = await httpClient.post(Uri.parse(graphqlEndpoint), body: {
-    'operationName': 'IntrospectionQuery',
-    'query': introspectionQuery,
-  });
+  final response = await httpClient.post(
+    Uri.parse(graphqlEndpoint),
+    body: {'operationName': 'IntrospectionQuery', 'query': introspectionQuery},
+  );
 
   return response.body;
 }
@@ -113,8 +115,11 @@ Future<String> fetchGraphQLSchemaStringFromURL(String graphqlEndpoint,
 void main(List<String> args) async {
   final parser = ArgParser()
     ..addFlag('help', abbr: 'h', help: 'Show this help', negatable: false)
-    ..addOption('endpoint',
-        abbr: 'e', help: 'Endpoint to hit to get the schema')
+    ..addOption(
+      'endpoint',
+      abbr: 'e',
+      help: 'Endpoint to hit to get the schema',
+    )
     ..addOption('output', abbr: 'o', help: 'File to output the schema to');
   final results = parser.parse(args);
 
@@ -122,12 +127,8 @@ void main(List<String> args) async {
     return print(parser.usage);
   }
 
-  File(
-    results['output'] as String,
-  ).writeAsStringSync(
-    await fetchGraphQLSchemaStringFromURL(
-      results['endpoint'] as String,
-    ),
+  File(results['output'] as String).writeAsStringSync(
+    await fetchGraphQLSchemaStringFromURL(results['endpoint'] as String),
     flush: true,
   );
 }

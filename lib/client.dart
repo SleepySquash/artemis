@@ -21,20 +21,10 @@ class ArtemisClient {
   ///
   /// [DedupeLink] and [HttpLink] are included.
   /// To use different [Link] create an [ArtemisClient] with [ArtemisClient.fromLink].
-  factory ArtemisClient(
-    String graphQLEndpoint, {
-    http.Client? httpClient,
-  }) {
-    final httpLink = HttpLink(
-      graphQLEndpoint,
-      httpClient: httpClient,
-    );
-    return ArtemisClient.fromLink(
-      Link.from([
-        DedupeLink(),
-        httpLink,
-      ]),
-    ).._httpLink = httpLink;
+  factory ArtemisClient(String graphQLEndpoint, {http.Client? httpClient}) {
+    final httpLink = HttpLink(graphQLEndpoint, httpClient: httpClient);
+    return ArtemisClient.fromLink(Link.from([DedupeLink(), httpLink]))
+      .._httpLink = httpLink;
   }
 
   /// Create an [ArtemisClient] from [Link].
@@ -77,11 +67,17 @@ class ArtemisClient {
       context: context,
     );
 
-    return _link.request(request).map((response) => GraphQLResponse<T>(
-          data: response.data == null ? null : query.parse(response.data ?? {}),
-          errors: response.errors,
-          context: response.context,
-        ));
+    return _link
+        .request(request)
+        .map(
+          (response) => GraphQLResponse<T>(
+            data: response.data == null
+                ? null
+                : query.parse(response.data ?? {}),
+            errors: response.errors,
+            context: response.context,
+          ),
+        );
   }
 
   /// Close the inline [http.Client].

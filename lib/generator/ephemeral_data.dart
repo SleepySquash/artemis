@@ -6,8 +6,13 @@ import 'package:gql/ast.dart';
 import '../schema/options.dart';
 
 /// Returns the full class name with joined path.
-List<Name> createPathName(List<Name> path, NamingScheme? namingScheme,
-    [Name? currentClassName, Name? currentFieldName, Name? alias]) {
+List<Name> createPathName(
+  List<Name> path,
+  NamingScheme? namingScheme, [
+  Name? currentClassName,
+  Name? currentFieldName,
+  Name? alias,
+]) {
   final fieldName = alias ?? currentFieldName;
   final className = alias ?? currentClassName;
 
@@ -108,12 +113,17 @@ class Context {
 
   Name? _stringForNaming(Name? withFieldNames, Name? withClassNames) =>
       schemaMap.namingScheme == NamingScheme.pathedWithFields
-          ? withFieldNames
-          : withClassNames;
+      ? withFieldNames
+      : withClassNames;
 
   /// Returns the full class name
   List<Name> fullPathName() => createPathName(
-      path, schemaMap.namingScheme, currentClassName, currentFieldName, alias);
+    path,
+    schemaMap.namingScheme,
+    currentClassName,
+    currentFieldName,
+    alias,
+  );
 
   /// Returns a copy of this context, on the same path, but with a new type.
   Context nextTypeWithSamePath({
@@ -125,24 +135,23 @@ class Context {
     List<Definition>? generatedClasses,
     List<QueryInput>? inputsClasses,
     List<FragmentDefinitionNode>? fragments,
-  }) =>
-      Context(
-        schema: schema,
-        typeDefinitionNodeVisitor: typeDefinitionNodeVisitor,
-        options: options,
-        schemaMap: schemaMap,
-        path: path,
-        currentType: nextType,
-        currentFieldName: nextFieldName,
-        currentClassName: nextClassName,
-        ofUnion: ofUnion == null ? this.ofUnion : ofUnion.value,
-        generatedClasses: generatedClasses ?? this.generatedClasses,
-        inputsClasses: inputsClasses ?? this.inputsClasses,
-        fragments: fragments ?? this.fragments,
-        align: align,
-        usedEnums: usedEnums,
-        usedInputObjects: usedInputObjects,
-      );
+  }) => Context(
+    schema: schema,
+    typeDefinitionNodeVisitor: typeDefinitionNodeVisitor,
+    options: options,
+    schemaMap: schemaMap,
+    path: path,
+    currentType: nextType,
+    currentFieldName: nextFieldName,
+    currentClassName: nextClassName,
+    ofUnion: ofUnion == null ? this.ofUnion : ofUnion.value,
+    generatedClasses: generatedClasses ?? this.generatedClasses,
+    inputsClasses: inputsClasses ?? this.inputsClasses,
+    fragments: fragments ?? this.fragments,
+    align: align,
+    usedEnums: usedEnums,
+    usedInputObjects: usedInputObjects,
+  );
 
   /// Returns a copy of this context, with a new type on a new path.
   Context next({
@@ -162,12 +171,11 @@ class Context {
       options: options,
       schemaMap: schemaMap,
       path: path
-          .followedBy([
-            _stringForNaming(
-              alias ?? nextFieldName,
-              alias ?? nextClassName,
-            )
-          ].whereType<Name>())
+          .followedBy(
+            [
+              _stringForNaming(alias ?? nextFieldName, alias ?? nextClassName),
+            ].whereType<Name>(),
+          )
           .toList(),
       currentType: nextType,
       currentFieldName: nextFieldName,
@@ -183,11 +191,7 @@ class Context {
   }
 
   /// Returns a copy of this context, with the same type and path.
-  Context withAlias({
-    Name? nextFieldName,
-    Name? nextClassName,
-    Name? alias,
-  }) =>
+  Context withAlias({Name? nextFieldName, Name? nextClassName, Name? alias}) =>
       Context(
         schema: schema,
         typeDefinitionNodeVisitor: typeDefinitionNodeVisitor,
@@ -225,12 +229,11 @@ class Context {
       options: options,
       schemaMap: schemaMap,
       path: path
-          .followedBy([
-            _stringForNaming(
-              alias ?? nextFieldName,
-              alias ?? nextClassName,
-            ),
-          ].whereType<Name>())
+          .followedBy(
+            [
+              _stringForNaming(alias ?? nextFieldName, alias ?? nextClassName),
+            ].whereType<Name>(),
+          )
           .toList(),
       currentType: currentType,
       currentFieldName: nextFieldName ?? currentFieldName,
@@ -276,25 +279,24 @@ class Context {
     List<Definition>? generatedClasses,
     List<QueryInput>? inputsClasses,
     List<FragmentDefinitionNode>? fragments,
-  }) =>
-      Context(
-        schema: schema,
-        typeDefinitionNodeVisitor: typeDefinitionNodeVisitor,
-        options: options,
-        schemaMap: schemaMap,
-        path: [],
-        currentType: currentType,
-        currentFieldName: currentFieldName,
-        currentClassName: currentClassName,
-        ofUnion: ofUnion == null ? this.ofUnion : ofUnion.value,
-        alias: alias ?? this.alias,
-        generatedClasses: generatedClasses ?? this.generatedClasses,
-        inputsClasses: inputsClasses ?? this.inputsClasses,
-        fragments: fragments ?? this.fragments,
-        align: align,
-        usedEnums: usedEnums,
-        usedInputObjects: usedInputObjects,
-      );
+  }) => Context(
+    schema: schema,
+    typeDefinitionNodeVisitor: typeDefinitionNodeVisitor,
+    options: options,
+    schemaMap: schemaMap,
+    path: [],
+    currentType: currentType,
+    currentFieldName: currentFieldName,
+    currentClassName: currentClassName,
+    ofUnion: ofUnion == null ? this.ofUnion : ofUnion.value,
+    alias: alias ?? this.alias,
+    generatedClasses: generatedClasses ?? this.generatedClasses,
+    inputsClasses: inputsClasses ?? this.inputsClasses,
+    fragments: fragments ?? this.fragments,
+    align: align,
+    usedEnums: usedEnums,
+    usedInputObjects: usedInputObjects,
+  );
 
   /// Returns a copy of this context, with next type, but on the first path.
   Context nextTypeWithNoPath({
@@ -306,23 +308,22 @@ class Context {
     List<Definition>? generatedClasses,
     List<QueryInput>? inputsClasses,
     List<FragmentDefinitionNode>? fragments,
-  }) =>
-      Context(
-        schema: schema,
-        typeDefinitionNodeVisitor: typeDefinitionNodeVisitor,
-        options: options,
-        schemaMap: schemaMap,
-        path: [],
-        currentType: nextType,
-        currentFieldName: nextFieldName,
-        currentClassName: nextClassName,
-        ofUnion: ofUnion == null ? this.ofUnion : ofUnion.value,
-        alias: alias ?? this.alias,
-        generatedClasses: generatedClasses ?? this.generatedClasses,
-        inputsClasses: inputsClasses ?? this.inputsClasses,
-        fragments: fragments ?? this.fragments,
-        align: 0,
-        usedEnums: usedEnums,
-        usedInputObjects: usedInputObjects,
-      );
+  }) => Context(
+    schema: schema,
+    typeDefinitionNodeVisitor: typeDefinitionNodeVisitor,
+    options: options,
+    schemaMap: schemaMap,
+    path: [],
+    currentType: nextType,
+    currentFieldName: nextFieldName,
+    currentClassName: nextClassName,
+    ofUnion: ofUnion == null ? this.ofUnion : ofUnion.value,
+    alias: alias ?? this.alias,
+    generatedClasses: generatedClasses ?? this.generatedClasses,
+    inputsClasses: inputsClasses ?? this.inputsClasses,
+    fragments: fragments ?? this.fragments,
+    align: 0,
+    usedEnums: usedEnums,
+    usedInputObjects: usedInputObjects,
+  );
 }

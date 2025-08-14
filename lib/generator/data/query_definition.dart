@@ -39,8 +39,8 @@ class QueryDefinition extends Definition with DataPrinter {
     this.generateHelpers = false,
     this.generateQueries = false,
     this.suffix = 'Query',
-  })  : assert(hasValue(operationName)),
-        super(name: name);
+  }) : assert(hasValue(operationName)),
+       super(name: name);
 
   /// class name for helper classes
   String? get className => ClassName(name: operationName).namePrintable;
@@ -54,21 +54,19 @@ class QueryDefinition extends Definition with DataPrinter {
 
   @override
   Map<String, Object?> get namedProps => {
-        'name': name,
-        'operationName': operationName,
-        'classes': classes,
-        'inputs': inputs,
-        'generateHelpers': generateHelpers,
-        'suffix': suffix,
-      };
+    'name': name,
+    'operationName': operationName,
+    'classes': classes,
+    'inputs': inputs,
+    'generateHelpers': generateHelpers,
+    'suffix': suffix,
+  };
 }
 
 /// Query name
 class QueryName extends Name with DataPrinter {
   /// Instantiate a query name definition.
-  QueryName({required String name})
-      : assert(hasValue(name)),
-        super(name: name);
+  QueryName({required String name}) : assert(hasValue(name)), super(name: name);
 
   /// Generate class name from hierarchical path
   factory QueryName.fromPath({required List<Name?> path}) {
@@ -76,9 +74,7 @@ class QueryName extends Name with DataPrinter {
   }
 
   @override
-  Map<String, Object?> get namedProps => {
-        'name': name,
-      };
+  Map<String, Object?> get namedProps => {'name': name};
 
   @override
   String normalize(String name) {

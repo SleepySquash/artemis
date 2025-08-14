@@ -6,9 +6,7 @@ class SchemaDefinitionVisitor extends RecursiveVisitor {
   SchemaDefinitionNode? schemaDefinitionNode;
 
   @override
-  void visitSchemaDefinitionNode(
-    SchemaDefinitionNode node,
-  ) {
+  void visitSchemaDefinitionNode(SchemaDefinitionNode node) {
     schemaDefinitionNode = node;
   }
 }

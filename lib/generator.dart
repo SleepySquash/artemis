@@ -63,26 +63,26 @@ LibraryDefinition generateLibrary(
 
   final documentsWithoutFragments = gqlDocs.map((doc) {
     return DocumentNode(
-      definitions:
-          doc.definitions.where((e) => e is! FragmentDefinitionNode).toList(),
+      definitions: doc.definitions
+          .where((e) => e is! FragmentDefinitionNode)
+          .toList(),
       span: doc.span,
     );
   }).toList();
 
   final queryDefinitions = documentsWithoutFragments
-      .map((doc) => generateDefinitions(
-            schema: schema,
-            typeDefinitionNodeVisitor: typeDefinitionNodeVisitor,
-            path: path,
-            document: doc,
-            options: options,
-            schemaMap: schemaMap,
-            fragmentsCommon: [
-              ...documentFragments,
-              ...fragmentsCommon,
-            ],
-            canonicalVisitor: canonicalVisitor,
-          ))
+      .map(
+        (doc) => generateDefinitions(
+          schema: schema,
+          typeDefinitionNodeVisitor: typeDefinitionNodeVisitor,
+          path: path,
+          document: doc,
+          options: options,
+          schemaMap: schemaMap,
+          fragmentsCommon: [...documentFragments, ...fragmentsCommon],
+          canonicalVisitor: canonicalVisitor,
+        ),
+      )
       .expand((e) => e)
       .toList();
 
@@ -109,29 +109,34 @@ LibraryDefinition generateLibrary(
   );
 }
 
-Set<FragmentDefinitionNode> _extractFragments(SelectionSetNode? selectionSet,
-    List<FragmentDefinitionNode> fragmentsCommon) {
+Set<FragmentDefinitionNode> _extractFragments(
+  SelectionSetNode? selectionSet,
+  List<FragmentDefinitionNode> fragmentsCommon,
+) {
   final result = <FragmentDefinitionNode>{};
   if (selectionSet != null) {
     selectionSet.selections.whereType<FieldNode>().forEach((selection) {
       result.addAll(_extractFragments(selection.selectionSet, fragmentsCommon));
     });
 
-    selectionSet.selections
-        .whereType<InlineFragmentNode>()
-        .forEach((selection) {
+    selectionSet.selections.whereType<InlineFragmentNode>().forEach((
+      selection,
+    ) {
       result.addAll(_extractFragments(selection.selectionSet, fragmentsCommon));
     });
 
-    selectionSet.selections
-        .whereType<FragmentSpreadNode>()
-        .forEach((selection) {
-      final fragmentDefinitions = fragmentsCommon.where((fragmentDefinition) =>
-          fragmentDefinition.name.value == selection.name.value);
+    selectionSet.selections.whereType<FragmentSpreadNode>().forEach((
+      selection,
+    ) {
+      final fragmentDefinitions = fragmentsCommon.where(
+        (fragmentDefinition) =>
+            fragmentDefinition.name.value == selection.name.value,
+      );
       result.addAll(fragmentDefinitions);
       for (var fragmentDefinition in fragmentDefinitions) {
-        result.addAll(_extractFragments(
-            fragmentDefinition.selectionSet, fragmentsCommon));
+        result.addAll(
+          _extractFragments(fragmentDefinition.selectionSet, fragmentsCommon),
+        );
       }
     });
   }
@@ -157,8 +162,9 @@ Iterable<QueryDefinition> generateDefinitions({
   //   throw FragmentIgnoreException();
   // }
 
-  final operations =
-      document.definitions.whereType<OperationDefinitionNode>().toList();
+  final operations = document.definitions
+      .whereType<OperationDefinitionNode>()
+      .toList();
 
   return operations.map((operation) {
     // final fragments = <FragmentDefinitionNode>[
@@ -167,12 +173,15 @@ Iterable<QueryDefinition> generateDefinitions({
     final definitions = document.definitions
         // filtering unused operations
         .where((e) {
-      return e is! OperationDefinitionNode || e == operation;
-    }).toList();
+          return e is! OperationDefinitionNode || e == operation;
+        })
+        .toList();
 
     if (fragmentsCommon.isNotEmpty) {
-      final fragmentsOperation =
-          _extractFragments(operation.selectionSet, fragmentsCommon);
+      final fragmentsOperation = _extractFragments(
+        operation.selectionSet,
+        fragmentsCommon,
+      );
       definitions.addAll(fragmentsOperation);
       // fragments.addAll(fragmentsOperation);
     }
@@ -191,22 +200,23 @@ Iterable<QueryDefinition> generateDefinitions({
       case OperationType.subscription:
         suffix = 'Subscription';
         break;
+
       case OperationType.mutation:
         suffix = 'Mutation';
         break;
+
       case OperationType.query:
-      default:
         suffix = 'Query';
         break;
     }
 
     final rootTypeName =
         (schemaVisitor.schemaDefinitionNode?.operationTypes ?? [])
-                .firstWhereOrNull((e) => e.operation == operation.type)
-                ?.type
-                .name
-                .value ??
-            suffix;
+            .firstWhereOrNull((e) => e.operation == operation.type)
+            ?.type
+            .name
+            .value ??
+        suffix;
 
     final parentType = objectVisitor.getByName(rootTypeName);
 
@@ -217,7 +227,7 @@ Iterable<QueryDefinition> generateDefinitions({
     final name = QueryName.fromPath(
       path: createPathName([
         ClassName(name: operationName),
-        ClassName(name: parentType.name.value)
+        ClassName(name: parentType.name.value),
       ], schemaMap.namingScheme),
     );
 
@@ -228,7 +238,7 @@ Iterable<QueryDefinition> generateDefinitions({
       schemaMap: schemaMap,
       path: [
         TypeName(name: operationName),
-        TypeName(name: parentType.name.value)
+        TypeName(name: parentType.name.value),
       ],
       currentType: parentType,
       currentFieldName: null,
@@ -319,12 +329,15 @@ ClassProperty createClassProperty({
 
   if (fieldType == null) {
     throw Exception(
-        '''Field $fieldName was not found in GraphQL type ${context.currentType?.name.value}.
-Make sure your query is correct and your schema is updated.''');
+      '''Field $fieldName was not found in GraphQL type ${context.currentType?.name.value}.
+Make sure your query is correct and your schema is updated.''',
+    );
   }
 
-  final nextType =
-      gql.getTypeByName(context.typeDefinitionNodeVisitor, fieldType);
+  final nextType = gql.getTypeByName(
+    context.typeDefinitionNodeVisitor,
+    fieldType,
+  );
 
   final aliasedContext = context.withAlias(
     nextFieldName: fieldName,
@@ -342,8 +355,11 @@ Make sure your query is correct and your schema is updated.''');
     typeDefinitionNodeVisitor: context.typeDefinitionNodeVisitor,
   );
 
-  logFn(context, aliasedContext.align + 1,
-      '${aliasedContext.path}[${aliasedContext.currentType!.name.value}][${aliasedContext.currentClassName} ${aliasedContext.currentFieldName}] ${fieldAlias == null ? '' : '($fieldAlias) '}-> ${dartTypeName.namePrintable}');
+  logFn(
+    context,
+    aliasedContext.align + 1,
+    '${aliasedContext.path}[${aliasedContext.currentType!.name.value}][${aliasedContext.currentClassName} ${aliasedContext.currentFieldName}] ${fieldAlias == null ? '' : '($fieldAlias) '}-> ${dartTypeName.namePrintable}',
+  );
 
   if ((nextType is ObjectTypeDefinitionNode ||
           nextType is UnionTypeDefinitionNode ||

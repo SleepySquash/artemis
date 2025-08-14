@@ -7,10 +7,9 @@ import 'package:test/test.dart';
 
 void main() {
   group('Multiple schema mapping', () {
-    test(
-      'Should search for definitions in correct schema',
-      () async {
-        final anotherBuilder = graphQLQueryBuilder(BuilderOptions({
+    test('Should search for definitions in correct schema', () async {
+      final anotherBuilder = graphQLQueryBuilder(
+        BuilderOptions({
           'generate_helpers': true,
           'schema_mapping': [
             {
@@ -24,40 +23,40 @@ void main() {
               'queries_glob': 'queries/queryB.graphql',
               'output': 'lib/outputB.graphql.dart',
               'naming_scheme': 'pathedWithFields',
-            }
+            },
           ],
-        }));
+        }),
+      );
 
-        var count = 0;
-        anotherBuilder.onBuild = expectAsync1((definition) {
-          log.fine(definition);
-          if (count == 0) {
-            expect(definition, libraryDefinitionA);
-          }
+      var count = 0;
+      anotherBuilder.onBuild = expectAsync1((definition) {
+        log.fine(definition);
+        if (count == 0) {
+          expect(definition, libraryDefinitionA);
+        }
 
-          if (count == 1) {
-            expect(definition, libraryDefinitionB);
-          }
+        if (count == 1) {
+          expect(definition, libraryDefinitionB);
+        }
 
-          count++;
-        }, count: 2);
+        count++;
+      }, count: 2);
 
-        return await testBuilder(
-          anotherBuilder,
-          {
-            'a|schemaA.graphql': schemaA,
-            'a|schemaB.graphql': schemaB,
-            'a|queries/queryA.graphql': queryA,
-            'a|queries/queryB.graphql': queryB,
-          },
-          outputs: {
-            'a|lib/outputA.graphql.dart': generatedFileA,
-            'a|lib/outputB.graphql.dart': generatedFileB,
-          },
-          onLog: print,
-        );
-      },
-    );
+      return await testBuilder(
+        anotherBuilder,
+        {
+          'a|schemaA.graphql': schemaA,
+          'a|schemaB.graphql': schemaB,
+          'a|queries/queryA.graphql': queryA,
+          'a|queries/queryB.graphql': queryB,
+        },
+        outputs: {
+          'a|lib/outputA.graphql.dart': generatedFileA,
+          'a|lib/outputB.graphql.dart': generatedFileB,
+        },
+        onLog: print,
+      );
+    });
   });
 }
 
@@ -142,155 +141,195 @@ const queryB = r'''
   }
 ''';
 
-final LibraryDefinition libraryDefinitionA =
-    LibraryDefinition(basename: r'outputA.graphql', queries: [
-  QueryDefinition(
+final LibraryDefinition libraryDefinitionA = LibraryDefinition(
+  basename: r'outputA.graphql',
+  queries: [
+    QueryDefinition(
       name: QueryName(name: r'BrowseArticles$_Query'),
       operationName: r'BrowseArticles',
       classes: [
-        EnumDefinition(name: EnumName(name: r'ArticleType'), values: [
-          EnumValueDefinition(name: EnumValueName(name: r'NEWS')),
-          EnumValueDefinition(name: EnumValueName(name: r'TUTORIAL')),
-          EnumValueDefinition(name: EnumValueName(name: r'ARTEMIS_UNKNOWN'))
-        ]),
+        EnumDefinition(
+          name: EnumName(name: r'ArticleType'),
+          values: [
+            EnumValueDefinition(name: EnumValueName(name: r'NEWS')),
+            EnumValueDefinition(name: EnumValueName(name: r'TUTORIAL')),
+            EnumValueDefinition(name: EnumValueName(name: r'ARTEMIS_UNKNOWN')),
+          ],
+        ),
         ClassDefinition(
-            name: ClassName(name: r'BrowseArticles$_Query$_articles'),
-            properties: [
-              ClassProperty(
-                  type: DartTypeName(name: r'String', isNonNull: true),
-                  name: ClassPropertyName(name: r'id'),
-                  isResolveType: false),
-              ClassProperty(
-                  type: DartTypeName(name: r'String', isNonNull: true),
-                  name: ClassPropertyName(name: r'title'),
-                  isResolveType: false),
-              ClassProperty(
-                  type: TypeName(name: r'ArticleType', isNonNull: true),
-                  name: ClassPropertyName(name: r'articleType'),
-                  annotations: [
-                    r'JsonKey(unknownEnumValue: ArticleType.artemisUnknown)'
-                  ],
-                  isResolveType: false)
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: false),
+          name: ClassName(name: r'BrowseArticles$_Query$_articles'),
+          properties: [
+            ClassProperty(
+              type: DartTypeName(name: r'String', isNonNull: true),
+              name: ClassPropertyName(name: r'id'),
+              isResolveType: false,
+            ),
+            ClassProperty(
+              type: DartTypeName(name: r'String', isNonNull: true),
+              name: ClassPropertyName(name: r'title'),
+              isResolveType: false,
+            ),
+            ClassProperty(
+              type: TypeName(name: r'ArticleType', isNonNull: true),
+              name: ClassPropertyName(name: r'articleType'),
+              annotations: [
+                r'JsonKey(unknownEnumValue: ArticleType.artemisUnknown)',
+              ],
+              isResolveType: false,
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: false,
+        ),
         ClassDefinition(
-            name: ClassName(name: r'BrowseArticles$_Query'),
-            properties: [
-              ClassProperty(
-                  type: ListOfTypeName(
-                      typeName: TypeName(
-                          name: r'BrowseArticles$_Query$_articles',
-                          isNonNull: true),
-                      isNonNull: false),
-                  name: ClassPropertyName(name: r'articles'),
-                  isResolveType: false)
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: false)
+          name: ClassName(name: r'BrowseArticles$_Query'),
+          properties: [
+            ClassProperty(
+              type: ListOfTypeName(
+                typeName: TypeName(
+                  name: r'BrowseArticles$_Query$_articles',
+                  isNonNull: true,
+                ),
+                isNonNull: false,
+              ),
+              name: ClassPropertyName(name: r'articles'),
+              isResolveType: false,
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: false,
+        ),
       ],
       generateHelpers: true,
-      suffix: r'Query')
-]);
+      suffix: r'Query',
+    ),
+  ],
+);
 
-final libraryDefinitionB =
-    LibraryDefinition(basename: r'outputB.graphql', queries: [
-  QueryDefinition(
+final libraryDefinitionB = LibraryDefinition(
+  basename: r'outputB.graphql',
+  queries: [
+    QueryDefinition(
       name: QueryName(name: r'BrowseRepositories$_Query'),
       operationName: r'BrowseRepositories',
       classes: [
-        EnumDefinition(name: EnumName(name: r'Privacy'), values: [
-          EnumValueDefinition(name: EnumValueName(name: r'PRIVATE')),
-          EnumValueDefinition(name: EnumValueName(name: r'PUBLIC')),
-          EnumValueDefinition(name: EnumValueName(name: r'ARTEMIS_UNKNOWN'))
-        ]),
-        EnumDefinition(name: EnumName(name: r'Status'), values: [
-          EnumValueDefinition(name: EnumValueName(name: r'ARCHIVED')),
-          EnumValueDefinition(name: EnumValueName(name: r'NORMAL')),
-          EnumValueDefinition(name: EnumValueName(name: r'ARTEMIS_UNKNOWN'))
-        ]),
-        EnumDefinition(name: EnumName(name: r'NotificationType'), values: [
-          EnumValueDefinition(name: EnumValueName(name: r'ACTIVITY_MESSAGE')),
-          EnumValueDefinition(name: EnumValueName(name: r'ACTIVITY_REPLY')),
-          EnumValueDefinition(name: EnumValueName(name: r'FOLLOWING')),
-          EnumValueDefinition(name: EnumValueName(name: r'ACTIVITY_MENTION')),
-          EnumValueDefinition(name: EnumValueName(name: r'ARTEMIS_UNKNOWN'))
-        ]),
+        EnumDefinition(
+          name: EnumName(name: r'Privacy'),
+          values: [
+            EnumValueDefinition(name: EnumValueName(name: r'PRIVATE')),
+            EnumValueDefinition(name: EnumValueName(name: r'PUBLIC')),
+            EnumValueDefinition(name: EnumValueName(name: r'ARTEMIS_UNKNOWN')),
+          ],
+        ),
+        EnumDefinition(
+          name: EnumName(name: r'Status'),
+          values: [
+            EnumValueDefinition(name: EnumValueName(name: r'ARCHIVED')),
+            EnumValueDefinition(name: EnumValueName(name: r'NORMAL')),
+            EnumValueDefinition(name: EnumValueName(name: r'ARTEMIS_UNKNOWN')),
+          ],
+        ),
+        EnumDefinition(
+          name: EnumName(name: r'NotificationType'),
+          values: [
+            EnumValueDefinition(name: EnumValueName(name: r'ACTIVITY_MESSAGE')),
+            EnumValueDefinition(name: EnumValueName(name: r'ACTIVITY_REPLY')),
+            EnumValueDefinition(name: EnumValueName(name: r'FOLLOWING')),
+            EnumValueDefinition(name: EnumValueName(name: r'ACTIVITY_MENTION')),
+            EnumValueDefinition(name: EnumValueName(name: r'ARTEMIS_UNKNOWN')),
+          ],
+        ),
         ClassDefinition(
-            name: ClassName(name: r'BrowseRepositories$_Query$_repositories'),
-            properties: [
-              ClassProperty(
-                  type: DartTypeName(name: r'String', isNonNull: true),
-                  name: ClassPropertyName(name: r'id'),
-                  isResolveType: false),
-              ClassProperty(
-                  type: DartTypeName(name: r'String', isNonNull: true),
-                  name: ClassPropertyName(name: r'title'),
-                  isResolveType: false),
-              ClassProperty(
-                  type: TypeName(name: r'Privacy', isNonNull: true),
-                  name: ClassPropertyName(name: r'privacy'),
-                  annotations: [
-                    r'JsonKey(unknownEnumValue: Privacy.artemisUnknown)'
-                  ],
-                  isResolveType: false),
-              ClassProperty(
-                  type: TypeName(name: r'Status', isNonNull: true),
-                  name: ClassPropertyName(name: r'status'),
-                  annotations: [
-                    r'JsonKey(unknownEnumValue: Status.artemisUnknown)'
-                  ],
-                  isResolveType: false)
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: false),
+          name: ClassName(name: r'BrowseRepositories$_Query$_repositories'),
+          properties: [
+            ClassProperty(
+              type: DartTypeName(name: r'String', isNonNull: true),
+              name: ClassPropertyName(name: r'id'),
+              isResolveType: false,
+            ),
+            ClassProperty(
+              type: DartTypeName(name: r'String', isNonNull: true),
+              name: ClassPropertyName(name: r'title'),
+              isResolveType: false,
+            ),
+            ClassProperty(
+              type: TypeName(name: r'Privacy', isNonNull: true),
+              name: ClassPropertyName(name: r'privacy'),
+              annotations: [
+                r'JsonKey(unknownEnumValue: Privacy.artemisUnknown)',
+              ],
+              isResolveType: false,
+            ),
+            ClassProperty(
+              type: TypeName(name: r'Status', isNonNull: true),
+              name: ClassPropertyName(name: r'status'),
+              annotations: [
+                r'JsonKey(unknownEnumValue: Status.artemisUnknown)',
+              ],
+              isResolveType: false,
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: false,
+        ),
         ClassDefinition(
-            name: ClassName(name: r'BrowseRepositories$_Query'),
-            properties: [
-              ClassProperty(
-                  type: ListOfTypeName(
-                      typeName: TypeName(
-                          name: r'BrowseRepositories$_Query$_repositories',
-                          isNonNull: true),
-                      isNonNull: false),
-                  name: ClassPropertyName(name: r'repositories'),
-                  isResolveType: false)
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: false),
+          name: ClassName(name: r'BrowseRepositories$_Query'),
+          properties: [
+            ClassProperty(
+              type: ListOfTypeName(
+                typeName: TypeName(
+                  name: r'BrowseRepositories$_Query$_repositories',
+                  isNonNull: true,
+                ),
+                isNonNull: false,
+              ),
+              name: ClassPropertyName(name: r'repositories'),
+              isResolveType: false,
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: false,
+        ),
         ClassDefinition(
-            name: ClassName(name: r'NotificationOptionInput'),
-            properties: [
-              ClassProperty(
-                  type: TypeName(name: r'NotificationType'),
-                  name: ClassPropertyName(name: r'type'),
-                  annotations: [
-                    r'JsonKey(unknownEnumValue: NotificationType.artemisUnknown)'
-                  ],
-                  isResolveType: false),
-              ClassProperty(
-                  type: DartTypeName(name: r'bool'),
-                  name: ClassPropertyName(name: r'enabled'),
-                  isResolveType: false)
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: true)
+          name: ClassName(name: r'NotificationOptionInput'),
+          properties: [
+            ClassProperty(
+              type: TypeName(name: r'NotificationType'),
+              name: ClassPropertyName(name: r'type'),
+              annotations: [
+                r'JsonKey(unknownEnumValue: NotificationType.artemisUnknown)',
+              ],
+              isResolveType: false,
+            ),
+            ClassProperty(
+              type: DartTypeName(name: r'bool'),
+              name: ClassPropertyName(name: r'enabled'),
+              isResolveType: false,
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: true,
+        ),
       ],
       inputs: [
         QueryInput(
-            type: ListOfTypeName(
-                typeName: TypeName(name: r'NotificationOptionInput'),
-                isNonNull: false),
-            name: QueryInputName(name: r'notificationTypes'))
+          type: ListOfTypeName(
+            typeName: TypeName(name: r'NotificationOptionInput'),
+            isNonNull: false,
+          ),
+          name: QueryInputName(name: r'notificationTypes'),
+        ),
       ],
       generateHelpers: true,
-      suffix: r'Query')
-]);
+      suffix: r'Query',
+    ),
+  ],
+);
 
 const generatedFileA = r'''// GENERATED CODE - DO NOT MODIFY BY HAND
 

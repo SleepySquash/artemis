@@ -16,9 +16,5 @@ class GraphQLResponse<T> {
   final Context? context;
 
   /// Instantiates a GraphQL response.
-  const GraphQLResponse({
-    this.data,
-    this.errors,
-    this.context,
-  });
+  const GraphQLResponse({this.data, this.errors, this.context});
 }

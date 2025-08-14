@@ -6,9 +6,7 @@ class ObjectTypeDefinitionVisitor extends RecursiveVisitor {
   Iterable<ObjectTypeDefinitionNode> types = [];
 
   @override
-  void visitObjectTypeDefinitionNode(
-    ObjectTypeDefinitionNode node,
-  ) {
+  void visitObjectTypeDefinitionNode(ObjectTypeDefinitionNode node) {
     types = types.followedBy([node]);
     super.visitObjectTypeDefinitionNode(node);
   }

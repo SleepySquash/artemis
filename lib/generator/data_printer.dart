@@ -29,8 +29,9 @@ mixin DataPrinter on Equatable {
   @override
   String toString() {
     final params = namedProps.entries
-        .map((e) =>
-            hasValue(e.value) ? '${e.key}:${_formatPrint(e.value)}' : null)
+        .map(
+          (e) => hasValue(e.value) ? '${e.key}:${_formatPrint(e.value)}' : null,
+        )
         .where((o) => o != null)
         .join(', ');
     return '$runtimeType($params)';

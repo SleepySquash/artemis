@@ -1,5 +1,4 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// @dart = 2.12
 
 import 'package:artemis/artemis.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -20,6 +19,7 @@ class SimpleQuery$Query$Pokemon extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [number, types];
+
   @override
   Map<String, dynamic> toJson() => _$SimpleQuery$Query$PokemonToJson(this);
 }
@@ -35,42 +35,55 @@ class SimpleQuery$Query extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [pokemon];
+
   @override
   Map<String, dynamic> toJson() => _$SimpleQuery$QueryToJson(this);
 }
 
-final SIMPLE_QUERY_QUERY_DOCUMENT = DocumentNode(definitions: [
-  OperationDefinitionNode(
+final SIMPLE_QUERY_QUERY_DOCUMENT_OPERATION_NAME = 'simple_query';
+final SIMPLE_QUERY_QUERY_DOCUMENT = DocumentNode(
+  definitions: [
+    OperationDefinitionNode(
       type: OperationType.query,
       name: NameNode(value: 'simple_query'),
       variableDefinitions: [],
       directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
+      selectionSet: SelectionSetNode(
+        selections: [
+          FieldNode(
             name: NameNode(value: 'pokemon'),
             alias: null,
             arguments: [
               ArgumentNode(
-                  name: NameNode(value: 'name'),
-                  value: StringValueNode(value: 'Charmander', isBlock: false))
+                name: NameNode(value: 'name'),
+                value: StringValueNode(value: 'Charmander', isBlock: false),
+              ),
             ],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
+            selectionSet: SelectionSetNode(
+              selections: [
+                FieldNode(
                   name: NameNode(value: 'number'),
                   alias: null,
                   arguments: [],
                   directives: [],
-                  selectionSet: null),
-              FieldNode(
+                  selectionSet: null,
+                ),
+                FieldNode(
                   name: NameNode(value: 'types'),
                   alias: null,
                   arguments: [],
                   directives: [],
-                  selectionSet: null)
-            ]))
-      ]))
-]);
+                  selectionSet: null,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    ),
+  ],
+);
 
 class SimpleQueryQuery
     extends GraphQLQuery<SimpleQuery$Query, JsonSerializable> {
@@ -80,10 +93,11 @@ class SimpleQueryQuery
   final DocumentNode document = SIMPLE_QUERY_QUERY_DOCUMENT;
 
   @override
-  final String operationName = 'simple_query';
+  final String operationName = SIMPLE_QUERY_QUERY_DOCUMENT_OPERATION_NAME;
 
   @override
   List<Object?> get props => [document, operationName];
+
   @override
   SimpleQuery$Query parse(Map<String, dynamic> json) =>
       SimpleQuery$Query.fromJson(json);

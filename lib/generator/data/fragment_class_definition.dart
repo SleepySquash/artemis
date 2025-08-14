@@ -13,17 +13,15 @@ class FragmentClassDefinition extends Definition with DataPrinter {
   final Iterable<ClassProperty> properties;
 
   /// Instantiate a fragment class definition.
-  FragmentClassDefinition({
-    required this.name,
-    required this.properties,
-  })  : assert(hasValue(name) && hasValue(properties)),
-        super(name: name);
+  FragmentClassDefinition({required this.name, required this.properties})
+    : assert(hasValue(name) && hasValue(properties)),
+      super(name: name);
 
   @override
   Map<String, Object> get namedProps => {
-        'name': name,
-        'properties': properties,
-      };
+    'name': name,
+    'properties': properties,
+  };
 }
 
 /// Fragment name
@@ -37,9 +35,7 @@ class FragmentName extends Name with DataPrinter {
   }
 
   @override
-  Map<String, Object?> get namedProps => {
-        'name': name,
-      };
+  Map<String, Object?> get namedProps => {'name': name};
 
   @override
   String normalize(String name) {

@@ -16,9 +16,7 @@ typedef EnumDefinitionGenerator = EnumDefinition Function();
 /// Visits canonical types Enums and InputObjects
 class CanonicalVisitor extends RecursiveVisitor {
   /// Constructor
-  CanonicalVisitor({
-    required this.context,
-  });
+  CanonicalVisitor({required this.context});
 
   /// Current context
   final Context context;
@@ -40,18 +38,24 @@ class CanonicalVisitor extends RecursiveVisitor {
       );
 
       logFn(context, nextContext.align, '-> Enum');
-      logFn(context, nextContext.align,
-          '<- Generated enum ${enumName.namePrintable}.');
+      logFn(
+        context,
+        nextContext.align,
+        '<- Generated enum ${enumName.namePrintable}.',
+      );
 
       return EnumDefinition(
         name: enumName,
-        values: node.values
-            .map((ev) => EnumValueDefinition(
-                  name: EnumValueName(name: ev.name.value),
-                  annotations: proceedDeprecated(ev.directives),
-                ))
-            .toList()
-          ..add(artemisUnknown),
+        values:
+            node.values
+                .map(
+                  (ev) => EnumValueDefinition(
+                    name: EnumValueName(name: ev.name.value),
+                    annotations: proceedDeprecated(ev.directives),
+                  ),
+                )
+                .toList()
+              ..add(artemisUnknown),
       );
     };
   }
@@ -66,35 +70,44 @@ class CanonicalVisitor extends RecursiveVisitor {
       );
 
       logFn(context, nextContext.align, '-> Input class');
-      logFn(context, nextContext.align,
-          '┌ ${nextContext.path}[${node.name.value}]');
+      logFn(
+        context,
+        nextContext.align,
+        '┌ ${nextContext.path}[${node.name.value}]',
+      );
       final properties = <ClassProperty>[];
 
-      properties.addAll(node.fields.map((i) {
-        final nextType =
-            gql.getTypeByName(nextContext.typeDefinitionNodeVisitor, i.type);
-        return createClassProperty(
-          fieldName: ClassPropertyName(name: i.name.value),
-          context: nextContext.nextTypeWithNoPath(
-            nextType: node,
-            nextClassName: ClassName(name: nextType.name.value),
-            nextFieldName: ClassName(name: i.name.value),
-            ofUnion: Nullable<TypeDefinitionNode?>(null),
-          ),
-          markAsUsed: false,
-        );
-      }));
-
-      logFn(context, nextContext.align,
-          '└ ${nextContext.path}[${node.name.value}]');
-      logFn(context, nextContext.align,
-          '<- Generated input class ${name.namePrintable}.');
-
-      return ClassDefinition(
-        isInput: true,
-        name: name,
-        properties: properties,
+      properties.addAll(
+        node.fields.map((i) {
+          final nextType = gql.getTypeByName(
+            nextContext.typeDefinitionNodeVisitor,
+            i.type,
+          );
+          return createClassProperty(
+            fieldName: ClassPropertyName(name: i.name.value),
+            context: nextContext.nextTypeWithNoPath(
+              nextType: node,
+              nextClassName: ClassName(name: nextType.name.value),
+              nextFieldName: ClassName(name: i.name.value),
+              ofUnion: Nullable<TypeDefinitionNode?>(null),
+            ),
+            markAsUsed: false,
+          );
+        }),
       );
+
+      logFn(
+        context,
+        nextContext.align,
+        '└ ${nextContext.path}[${node.name.value}]',
+      );
+      logFn(
+        context,
+        nextContext.align,
+        '<- Generated input class ${name.namePrintable}.',
+      );
+
+      return ClassDefinition(isInput: true, name: name, properties: properties);
     };
   }
 }

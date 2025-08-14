@@ -32,5 +32,5 @@ final _expectedNames = [
   r'PartsMixin$AliasOnFThing',
   r'PartsMixin',
   r'Input',
-  r'SubInput'
+  r'SubInput',
 ];

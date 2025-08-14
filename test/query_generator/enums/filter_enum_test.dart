@@ -72,83 +72,101 @@ const query = r'''
   }
 ''';
 
-final LibraryDefinition libraryDefinition =
-    LibraryDefinition(basename: r'query.graphql', queries: [
-  QueryDefinition(
+final LibraryDefinition libraryDefinition = LibraryDefinition(
+  basename: r'query.graphql',
+  queries: [
+    QueryDefinition(
       name: QueryName(name: r'Custom$_QueryRoot'),
       operationName: r'custom',
       classes: [
-        EnumDefinition(name: EnumName(name: r'MyEnum'), values: [
-          EnumValueDefinition(name: EnumValueName(name: r'A')),
-          EnumValueDefinition(name: EnumValueName(name: r'B')),
-          EnumValueDefinition(name: EnumValueName(name: r'ARTEMIS_UNKNOWN'))
-        ]),
-        EnumDefinition(name: EnumName(name: r'input_enum'), values: [
-          EnumValueDefinition(name: EnumValueName(name: r'C')),
-          EnumValueDefinition(name: EnumValueName(name: r'D')),
-          EnumValueDefinition(name: EnumValueName(name: r'ARTEMIS_UNKNOWN'))
-        ]),
-        EnumDefinition(name: EnumName(name: r'_InputInputEnum'), values: [
-          EnumValueDefinition(name: EnumValueName(name: r'_E')),
-          EnumValueDefinition(name: EnumValueName(name: r'_F')),
-          EnumValueDefinition(name: EnumValueName(name: r'_new')),
-          EnumValueDefinition(name: EnumValueName(name: r'new')),
-          EnumValueDefinition(name: EnumValueName(name: r'ARTEMIS_UNKNOWN'))
-        ]),
+        EnumDefinition(
+          name: EnumName(name: r'MyEnum'),
+          values: [
+            EnumValueDefinition(name: EnumValueName(name: r'A')),
+            EnumValueDefinition(name: EnumValueName(name: r'B')),
+            EnumValueDefinition(name: EnumValueName(name: r'ARTEMIS_UNKNOWN')),
+          ],
+        ),
+        EnumDefinition(
+          name: EnumName(name: r'input_enum'),
+          values: [
+            EnumValueDefinition(name: EnumValueName(name: r'C')),
+            EnumValueDefinition(name: EnumValueName(name: r'D')),
+            EnumValueDefinition(name: EnumValueName(name: r'ARTEMIS_UNKNOWN')),
+          ],
+        ),
+        EnumDefinition(
+          name: EnumName(name: r'_InputInputEnum'),
+          values: [
+            EnumValueDefinition(name: EnumValueName(name: r'_E')),
+            EnumValueDefinition(name: EnumValueName(name: r'_F')),
+            EnumValueDefinition(name: EnumValueName(name: r'_new')),
+            EnumValueDefinition(name: EnumValueName(name: r'new')),
+            EnumValueDefinition(name: EnumValueName(name: r'ARTEMIS_UNKNOWN')),
+          ],
+        ),
         ClassDefinition(
-            name: ClassName(name: r'Custom$_QueryRoot$_QueryResponse'),
-            properties: [
-              ClassProperty(
-                  type: TypeName(name: r'MyEnum'),
-                  name: ClassPropertyName(name: r'e'),
-                  annotations: [
-                    r'JsonKey(unknownEnumValue: MyEnum.artemisUnknown)'
-                  ],
-                  isResolveType: false)
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: false),
+          name: ClassName(name: r'Custom$_QueryRoot$_QueryResponse'),
+          properties: [
+            ClassProperty(
+              type: TypeName(name: r'MyEnum'),
+              name: ClassPropertyName(name: r'e'),
+              annotations: [
+                r'JsonKey(unknownEnumValue: MyEnum.artemisUnknown)',
+              ],
+              isResolveType: false,
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: false,
+        ),
         ClassDefinition(
-            name: ClassName(name: r'Custom$_QueryRoot'),
-            properties: [
-              ClassProperty(
-                  type: TypeName(name: r'Custom$_QueryRoot$_QueryResponse'),
-                  name: ClassPropertyName(name: r'q'),
-                  isResolveType: false)
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: false),
+          name: ClassName(name: r'Custom$_QueryRoot'),
+          properties: [
+            ClassProperty(
+              type: TypeName(name: r'Custom$_QueryRoot$_QueryResponse'),
+              name: ClassPropertyName(name: r'q'),
+              isResolveType: false,
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: false,
+        ),
         ClassDefinition(
-            name: ClassName(name: r'Input'),
-            properties: [
-              ClassProperty(
-                  type: TypeName(name: r'_InputInputEnum'),
-                  name: ClassPropertyName(name: r'e'),
-                  annotations: [
-                    r'JsonKey(unknownEnumValue: $InputInputEnum.artemisUnknown)'
-                  ],
-                  isResolveType: false)
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: true)
+          name: ClassName(name: r'Input'),
+          properties: [
+            ClassProperty(
+              type: TypeName(name: r'_InputInputEnum'),
+              name: ClassPropertyName(name: r'e'),
+              annotations: [
+                r'JsonKey(unknownEnumValue: $InputInputEnum.artemisUnknown)',
+              ],
+              isResolveType: false,
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: true,
+        ),
       ],
       inputs: [
         QueryInput(
-            type: TypeName(name: r'input_enum', isNonNull: true),
-            name: QueryInputName(name: r'e'),
-            annotations: [
-              r'JsonKey(unknownEnumValue: InputEnum.artemisUnknown)'
-            ]),
+          type: TypeName(name: r'input_enum', isNonNull: true),
+          name: QueryInputName(name: r'e'),
+          annotations: [r'JsonKey(unknownEnumValue: InputEnum.artemisUnknown)'],
+        ),
         QueryInput(
-            type: TypeName(name: r'Input', isNonNull: true),
-            name: QueryInputName(name: r'i'))
+          type: TypeName(name: r'Input', isNonNull: true),
+          name: QueryInputName(name: r'i'),
+        ),
       ],
       generateHelpers: false,
-      suffix: r'Query')
-]);
+      suffix: r'Query',
+    ),
+  ],
+);
 
 const generatedFile = r'''// GENERATED CODE - DO NOT MODIFY BY HAND
 

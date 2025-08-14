@@ -53,10 +53,7 @@ TypeName buildTypeName(
             isNonNull: node.isNonNull,
           );
         } else if (graphQLTypeValue != null) {
-          return TypeName(
-            name: graphQLTypeValue,
-            isNonNull: node.isNonNull,
-          );
+          return TypeName(name: graphQLTypeValue, isNonNull: node.isNonNull);
         }
       }
 
@@ -83,34 +80,44 @@ TypeName buildTypeName(
       replaceLeafWith: replaceLeafWith,
       typeDefinitionNodeVisitor: typeDefinitionNodeVisitor,
     );
-    return ListOfTypeName(
-      typeName: typeName,
-      isNonNull: node.isNonNull,
-    );
+    return ListOfTypeName(typeName: typeName, isNonNull: node.isNonNull);
   }
 
   throw Exception('Unable to build type name');
 }
 
 Map<String, ScalarMap> _defaultScalarMapping = {
-  'Boolean':
-      ScalarMap(graphQLType: 'Boolean', dartType: const DartType(name: 'bool')),
-  'Float':
-      ScalarMap(graphQLType: 'Float', dartType: const DartType(name: 'double')),
-  'ID': ScalarMap(graphQLType: 'ID', dartType: const DartType(name: 'String')),
-  'Int': ScalarMap(graphQLType: 'Int', dartType: const DartType(name: 'int')),
+  'Boolean': ScalarMap(
+    graphQLType: 'Boolean',
+    dartType: const DartType(name: 'bool'),
+  ),
+  'Float': ScalarMap(
+    graphQLType: 'Float',
+    dartType: const DartType(name: 'double'),
+  ),
+  'ID': ScalarMap(
+    graphQLType: 'ID',
+    dartType: const DartType(name: 'String'),
+  ),
+  'Int': ScalarMap(
+    graphQLType: 'Int',
+    dartType: const DartType(name: 'int'),
+  ),
   'String': ScalarMap(
-      graphQLType: 'String', dartType: const DartType(name: 'String')),
+    graphQLType: 'String',
+    dartType: const DartType(name: 'String'),
+  ),
 };
 
 /// Retrieve a scalar mapping of a type.
-ScalarMap? getSingleScalarMap(GeneratorOptions options, String type,
-    {bool throwOnNotFound = true}) {
-  final scalarMap =
-      options.scalarMapping.followedBy(_defaultScalarMapping.values).firstWhere(
-            (m) => m!.graphQLType == type,
-            orElse: () => null,
-          );
+ScalarMap? getSingleScalarMap(
+  GeneratorOptions options,
+  String type, {
+  bool throwOnNotFound = true,
+}) {
+  final scalarMap = options.scalarMapping
+      .followedBy(_defaultScalarMapping.values)
+      .firstWhere((m) => m!.graphQLType == type, orElse: () => null);
 
   if (throwOnNotFound && scalarMap == null) {
     throw MissingScalarConfigurationException(type);

@@ -13,17 +13,12 @@ class EnumDefinition extends Definition with DataPrinter {
   final Iterable<EnumValueDefinition> values;
 
   /// Instantiate an enum definition.
-  EnumDefinition({
-    required this.name,
-    required this.values,
-  })  : assert(hasValue(name) && hasValue(values)),
-        super(name: name);
+  EnumDefinition({required this.name, required this.values})
+    : assert(hasValue(name) && hasValue(values)),
+      super(name: name);
 
   @override
-  Map<String, Object?> get namedProps => {
-        'name': name,
-        'values': values,
-      };
+  Map<String, Object?> get namedProps => {'name': name, 'values': values};
 }
 
 /// Enum name
@@ -37,7 +32,5 @@ class EnumName extends Name with DataPrinter {
   }
 
   @override
-  Map<String, Object?> get namedProps => {
-        'name': name,
-      };
+  Map<String, Object?> get namedProps => {'name': name};
 }

@@ -46,74 +46,91 @@ const query = r'''
   }
 ''';
 
-final LibraryDefinition libraryDefinition =
-    LibraryDefinition(basename: r'query.graphql', queries: [
-  QueryDefinition(
+final LibraryDefinition libraryDefinition = LibraryDefinition(
+  basename: r'query.graphql',
+  queries: [
+    QueryDefinition(
       name: QueryName(name: r'SearchArticles$_Query'),
       operationName: r'SearchArticles',
       classes: [
-        EnumDefinition(name: EnumName(name: r'SQLOperator'), values: [
-          EnumValueDefinition(name: EnumValueName(name: r'EQ')),
-          EnumValueDefinition(name: EnumValueName(name: r'IN')),
-          EnumValueDefinition(name: EnumValueName(name: r'ARTEMIS_UNKNOWN'))
-        ]),
+        EnumDefinition(
+          name: EnumName(name: r'SQLOperator'),
+          values: [
+            EnumValueDefinition(name: EnumValueName(name: r'EQ')),
+            EnumValueDefinition(name: EnumValueName(name: r'IN')),
+            EnumValueDefinition(name: EnumValueName(name: r'ARTEMIS_UNKNOWN')),
+          ],
+        ),
         ClassDefinition(
-            name: ClassName(name: r'SearchArticles$_Query$_Article'),
-            properties: [
-              ClassProperty(
-                  type: DartTypeName(name: r'String', isNonNull: true),
-                  name: ClassPropertyName(name: r'id'),
-                  isResolveType: false),
-              ClassProperty(
-                  type: DartTypeName(name: r'String', isNonNull: true),
-                  name: ClassPropertyName(name: r'title'),
-                  isResolveType: false)
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: false),
+          name: ClassName(name: r'SearchArticles$_Query$_Article'),
+          properties: [
+            ClassProperty(
+              type: DartTypeName(name: r'String', isNonNull: true),
+              name: ClassPropertyName(name: r'id'),
+              isResolveType: false,
+            ),
+            ClassProperty(
+              type: DartTypeName(name: r'String', isNonNull: true),
+              name: ClassPropertyName(name: r'title'),
+              isResolveType: false,
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: false,
+        ),
         ClassDefinition(
-            name: ClassName(name: r'SearchArticles$_Query'),
-            properties: [
-              ClassProperty(
-                  type: ListOfTypeName(
-                      typeName: TypeName(
-                          name: r'SearchArticles$_Query$_Article',
-                          isNonNull: true),
-                      isNonNull: false),
-                  name: ClassPropertyName(name: r'articles'),
-                  isResolveType: false)
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: false),
+          name: ClassName(name: r'SearchArticles$_Query'),
+          properties: [
+            ClassProperty(
+              type: ListOfTypeName(
+                typeName: TypeName(
+                  name: r'SearchArticles$_Query$_Article',
+                  isNonNull: true,
+                ),
+                isNonNull: false,
+              ),
+              name: ClassPropertyName(name: r'articles'),
+              isResolveType: false,
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: false,
+        ),
         ClassDefinition(
-            name: ClassName(name: r'ArticleTitleWhereConditions'),
-            properties: [
-              ClassProperty(
-                  type: TypeName(name: r'SQLOperator'),
-                  name: ClassPropertyName(name: r'operator'),
-                  annotations: [
-                    r'''JsonKey(name: 'operator', unknownEnumValue: SQLOperator.artemisUnknown)'''
-                  ],
-                  isResolveType: false),
-              ClassProperty(
-                  type: DartTypeName(name: r'String'),
-                  name: ClassPropertyName(name: r'value'),
-                  isResolveType: false)
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: true)
+          name: ClassName(name: r'ArticleTitleWhereConditions'),
+          properties: [
+            ClassProperty(
+              type: TypeName(name: r'SQLOperator'),
+              name: ClassPropertyName(name: r'operator'),
+              annotations: [
+                r'''JsonKey(name: 'operator', unknownEnumValue: SQLOperator.artemisUnknown)''',
+              ],
+              isResolveType: false,
+            ),
+            ClassProperty(
+              type: DartTypeName(name: r'String'),
+              name: ClassPropertyName(name: r'value'),
+              isResolveType: false,
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: true,
+        ),
       ],
       inputs: [
         QueryInput(
-            type: TypeName(name: r'ArticleTitleWhereConditions'),
-            name: QueryInputName(name: r'titleWhere'))
+          type: TypeName(name: r'ArticleTitleWhereConditions'),
+          name: QueryInputName(name: r'titleWhere'),
+        ),
       ],
       generateHelpers: false,
-      suffix: r'Query')
-]);
+      suffix: r'Query',
+    ),
+  ],
+);
 
 const generatedFile = r'''// GENERATED CODE - DO NOT MODIFY BY HAND
 

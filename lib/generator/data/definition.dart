@@ -36,7 +36,7 @@ abstract class Name extends Equatable with DataPrinter {
           .allMatches(namePrintable)
           .map((e) => e.group(1))
           .join('')
-          .replaceAll(reNull, 'Nullable')
+          .replaceAll(reNull, 'Nullable'),
     ].join('');
   }
 

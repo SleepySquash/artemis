@@ -61,10 +61,7 @@ class DartType {
   final List<String> imports;
 
   /// Instantiate a Dart type.
-  const DartType({
-    this.name,
-    this.imports = const [],
-  });
+  const DartType({this.name, this.imports = const []});
 
   /// Build a Dart type from a JSON string or map.
   factory DartType.fromJson(dynamic json) {
@@ -100,11 +97,7 @@ class ScalarMap {
   final String? customParserImport;
 
   /// Instatiates a scalar mapping.
-  ScalarMap({
-    this.graphQLType,
-    this.dartType,
-    this.customParserImport,
-  });
+  ScalarMap({this.graphQLType, this.dartType, this.customParserImport});
 
   /// Build a scalar mapping from a JSON map.
   factory ScalarMap.fromJson(Map<String, dynamic> json) =>

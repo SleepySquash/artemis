@@ -89,94 +89,112 @@ const fragmentsString = '''
   }
 ''';
 
-final LibraryDefinition libraryDefinition =
-    LibraryDefinition(basename: r'query.graphql', queries: [
-  QueryDefinition(
+final LibraryDefinition libraryDefinition = LibraryDefinition(
+  basename: r'query.graphql',
+  queries: [
+    QueryDefinition(
       name: QueryName(name: r'GetPokemon$_Query'),
       operationName: r'getPokemon',
       classes: [
         ClassDefinition(
-            name: ClassName(name: r'GetPokemon$_Query$_Pokemon'),
-            mixins: [FragmentName(name: r'PokemonFragmentMixin')],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: false),
+          name: ClassName(name: r'GetPokemon$_Query$_Pokemon'),
+          mixins: [FragmentName(name: r'PokemonFragmentMixin')],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: false,
+        ),
         ClassDefinition(
-            name: ClassName(name: r'GetPokemon$_Query'),
-            properties: [
-              ClassProperty(
-                  type: TypeName(name: r'GetPokemon$_Query$_Pokemon'),
-                  name: ClassPropertyName(name: r'pokemon'),
-                  isResolveType: false)
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: false),
+          name: ClassName(name: r'GetPokemon$_Query'),
+          properties: [
+            ClassProperty(
+              type: TypeName(name: r'GetPokemon$_Query$_Pokemon'),
+              name: ClassPropertyName(name: r'pokemon'),
+              isResolveType: false,
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: false,
+        ),
         FragmentClassDefinition(
-            name: FragmentName(name: r'PokemonFragmentMixin'),
-            properties: [
-              ClassProperty(
-                  type: DartTypeName(name: r'String'),
-                  name: ClassPropertyName(name: r'number'),
-                  isResolveType: false),
-              ClassProperty(
-                  type: DartTypeName(name: r'String'),
-                  name: ClassPropertyName(name: r'name'),
-                  isResolveType: false)
-            ])
+          name: FragmentName(name: r'PokemonFragmentMixin'),
+          properties: [
+            ClassProperty(
+              type: DartTypeName(name: r'String'),
+              name: ClassPropertyName(name: r'number'),
+              isResolveType: false,
+            ),
+            ClassProperty(
+              type: DartTypeName(name: r'String'),
+              name: ClassPropertyName(name: r'name'),
+              isResolveType: false,
+            ),
+          ],
+        ),
       ],
       inputs: [
         QueryInput(
-            type: DartTypeName(name: r'String', isNonNull: true),
-            name: QueryInputName(name: r'name'))
+          type: DartTypeName(name: r'String', isNonNull: true),
+          name: QueryInputName(name: r'name'),
+        ),
       ],
       generateHelpers: true,
-      suffix: r'Query'),
-  QueryDefinition(
+      suffix: r'Query',
+    ),
+    QueryDefinition(
       name: QueryName(name: r'GetAllPokemons$_Query'),
       operationName: r'getAllPokemons',
       classes: [
         ClassDefinition(
-            name: ClassName(name: r'GetAllPokemons$_Query$_Pokemon'),
-            mixins: [FragmentName(name: r'PokemonFragmentMixin')],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: false),
+          name: ClassName(name: r'GetAllPokemons$_Query$_Pokemon'),
+          mixins: [FragmentName(name: r'PokemonFragmentMixin')],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: false,
+        ),
         ClassDefinition(
-            name: ClassName(name: r'GetAllPokemons$_Query'),
-            properties: [
-              ClassProperty(
-                  type: ListOfTypeName(
-                      typeName:
-                          TypeName(name: r'GetAllPokemons$_Query$_Pokemon'),
-                      isNonNull: false),
-                  name: ClassPropertyName(name: r'pokemons'),
-                  isResolveType: false)
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: false),
+          name: ClassName(name: r'GetAllPokemons$_Query'),
+          properties: [
+            ClassProperty(
+              type: ListOfTypeName(
+                typeName: TypeName(name: r'GetAllPokemons$_Query$_Pokemon'),
+                isNonNull: false,
+              ),
+              name: ClassPropertyName(name: r'pokemons'),
+              isResolveType: false,
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: false,
+        ),
         FragmentClassDefinition(
-            name: FragmentName(name: r'PokemonFragmentMixin'),
-            properties: [
-              ClassProperty(
-                  type: DartTypeName(name: r'String'),
-                  name: ClassPropertyName(name: r'number'),
-                  isResolveType: false),
-              ClassProperty(
-                  type: DartTypeName(name: r'String'),
-                  name: ClassPropertyName(name: r'name'),
-                  isResolveType: false)
-            ])
+          name: FragmentName(name: r'PokemonFragmentMixin'),
+          properties: [
+            ClassProperty(
+              type: DartTypeName(name: r'String'),
+              name: ClassPropertyName(name: r'number'),
+              isResolveType: false,
+            ),
+            ClassProperty(
+              type: DartTypeName(name: r'String'),
+              name: ClassPropertyName(name: r'name'),
+              isResolveType: false,
+            ),
+          ],
+        ),
       ],
       inputs: [
         QueryInput(
-            type: DartTypeName(name: r'int', isNonNull: true),
-            name: QueryInputName(name: r'first'))
+          type: DartTypeName(name: r'int', isNonNull: true),
+          name: QueryInputName(name: r'first'),
+        ),
       ],
       generateHelpers: true,
-      suffix: r'Query')
-]);
+      suffix: r'Query',
+    ),
+  ],
+);
 
 const generatedFile = r'''// GENERATED CODE - DO NOT MODIFY BY HAND
 

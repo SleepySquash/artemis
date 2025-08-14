@@ -19,15 +19,15 @@ class QueryInput extends Definition with DataPrinter {
     required this.type,
     this.annotations = const [],
     required this.name,
-  })  : assert(hasValue(type) && hasValue(name)),
-        super(name: name);
+  }) : assert(hasValue(type) && hasValue(name)),
+       super(name: name);
 
   @override
   Map<String, Object?> get namedProps => {
-        'type': type,
-        'name': name,
-        'annotations': annotations,
-      };
+    'type': type,
+    'name': name,
+    'annotations': annotations,
+  };
 }
 
 ///
@@ -36,7 +36,5 @@ class QueryInputName extends Name {
   QueryInputName({required String name}) : super(name: name);
 
   @override
-  Map<String, Object?> get namedProps => {
-        'name': name,
-      };
+  Map<String, Object?> get namedProps => {'name': name};
 }

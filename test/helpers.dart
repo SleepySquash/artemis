@@ -24,20 +24,22 @@ Future testGenerator({
 }) async {
   Logger.root.level = Level.INFO;
 
-  final anotherBuilder = graphQLQueryBuilder(BuilderOptions({
-    if (!generateHelpers) 'generate_helpers': false,
-    if (!generateQueries) 'generate_queries': false,
-    'schema_mapping': [
-      {
-        'schema': 'api.schema.graphql',
-        'queries_glob': 'queries/**.graphql',
-        'output': 'lib/query.graphql.dart',
-        'naming_scheme': namingScheme,
-        'append_type_name': appendTypeName,
-      }
-    ],
-    ...builderOptionsMap,
-  }));
+  final anotherBuilder = graphQLQueryBuilder(
+    BuilderOptions({
+      if (!generateHelpers) 'generate_helpers': false,
+      if (!generateQueries) 'generate_queries': false,
+      'schema_mapping': [
+        {
+          'schema': 'api.schema.graphql',
+          'queries_glob': 'queries/**.graphql',
+          'output': 'lib/query.graphql.dart',
+          'naming_scheme': namingScheme,
+          'append_type_name': appendTypeName,
+        },
+      ],
+      ...builderOptionsMap,
+    }),
+  );
 
   anotherBuilder.onBuild = expectAsync1((definition) {
     log.fine(definition);
@@ -51,10 +53,7 @@ Future testGenerator({
       'a|queries/query.graphql': query,
       ...sourceAssetsMap,
     },
-    outputs: {
-      'a|lib/query.graphql.dart': generatedFile,
-      ...outputsMap,
-    },
+    outputs: {'a|lib/query.graphql.dart': generatedFile, ...outputsMap},
     onLog: print,
   );
 }
@@ -66,18 +65,20 @@ Future testNaming({
   required String namingScheme,
   bool shouldFail = false,
 }) {
-  final anotherBuilder = graphQLQueryBuilder(BuilderOptions({
-    'generate_helpers': false,
-    'generate_queries': false,
-    'schema_mapping': [
-      {
-        'schema': 'api.schema.graphql',
-        'queries_glob': 'queries/**.graphql',
-        'output': 'lib/query.dart',
-        'naming_scheme': namingScheme,
-      }
-    ],
-  }));
+  final anotherBuilder = graphQLQueryBuilder(
+    BuilderOptions({
+      'generate_helpers': false,
+      'generate_queries': false,
+      'schema_mapping': [
+        {
+          'schema': 'api.schema.graphql',
+          'queries_glob': 'queries/**.graphql',
+          'output': 'lib/query.dart',
+          'naming_scheme': namingScheme,
+        },
+      ],
+    }),
+  );
 
   if (!shouldFail) {
     anotherBuilder.onBuild = expectAsync1((definition) {
@@ -89,12 +90,8 @@ Future testNaming({
     }, count: 1);
   }
 
-  return testBuilder(
-    anotherBuilder,
-    {
-      'a|api.schema.graphql': schema,
-      'a|queries/query.graphql': query,
-    },
-    onLog: print,
-  );
+  return testBuilder(anotherBuilder, {
+    'a|api.schema.graphql': schema,
+    'a|queries/query.graphql': query,
+  }, onLog: print);
 }

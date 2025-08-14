@@ -11,16 +11,14 @@ class EnumValueDefinition extends Definition with DataPrinter {
   final List<String> annotations;
 
   /// Instantiate an enum value
-  EnumValueDefinition({
-    required this.name,
-    this.annotations = const [],
-  }) : super(name: name);
+  EnumValueDefinition({required this.name, this.annotations = const []})
+    : super(name: name);
 
   @override
   Map<String, Object> get namedProps => {
-        'name': name,
-        'annotations': annotations,
-      };
+    'name': name,
+    'annotations': annotations,
+  };
 }
 
 /// Enum value name
@@ -29,9 +27,7 @@ class EnumValueName extends Name with DataPrinter {
   EnumValueName({required String name}) : super(name: name);
 
   @override
-  Map<String, Object?> get namedProps => {
-        'name': name,
-      };
+  Map<String, Object?> get namedProps => {'name': name};
 
   @override
   String normalize(String name) {

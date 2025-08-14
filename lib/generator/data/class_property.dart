@@ -23,8 +23,8 @@ class ClassProperty extends Definition with DataPrinter {
     required this.type,
     this.annotations = const [],
     this.isResolveType = false,
-  })  : assert(hasValue(type) && hasValue(name)),
-        super(name: name);
+  }) : assert(hasValue(type) && hasValue(name)),
+       super(name: name);
 
   /// If property is an override from super class.
   bool get isOverride => annotations.contains('override');
@@ -35,21 +35,20 @@ class ClassProperty extends Definition with DataPrinter {
     ClassPropertyName? name,
     List<String>? annotations,
     bool? isResolveType,
-  }) =>
-      ClassProperty(
-        type: type ?? this.type,
-        name: name ?? this.name,
-        annotations: annotations ?? this.annotations,
-        isResolveType: isResolveType ?? this.isResolveType,
-      );
+  }) => ClassProperty(
+    type: type ?? this.type,
+    name: name ?? this.name,
+    annotations: annotations ?? this.annotations,
+    isResolveType: isResolveType ?? this.isResolveType,
+  );
 
   @override
   Map<String, Object> get namedProps => {
-        'type': type,
-        'name': name,
-        'annotations': annotations,
-        'isResolveType': isResolveType,
-      };
+    'type': type,
+    'name': name,
+    'annotations': annotations,
+    'isResolveType': isResolveType,
+  };
 }
 
 /// Class property name
@@ -65,9 +64,7 @@ class ClassPropertyName extends Name with DataPrinter {
   }
 
   @override
-  Map<String, Object?> get namedProps => {
-        'name': name,
-      };
+  Map<String, Object?> get namedProps => {'name': name};
 }
 
 const _camelCaseTypes = {'bool', 'double', 'int'};
@@ -75,19 +72,16 @@ const _camelCaseTypes = {'bool', 'double', 'int'};
 /// Type name
 class TypeName extends Name with DataPrinter {
   /// Instantiate a type name definition.
-  TypeName({
-    required String name,
-    this.isNonNull = false,
-  }) : super(name: name);
+  TypeName({required String name, this.isNonNull = false}) : super(name: name);
 
   /// If this type is non-null
   final bool isNonNull;
 
   @override
   Map<String, Object?> get namedProps => {
-        'name': name,
-        if (isNonNull) 'isNonNull': true,
-      };
+    'name': name,
+    if (isNonNull) 'isNonNull': true,
+  };
 
   @override
   List get props => [name, isNonNull];
@@ -106,10 +100,8 @@ class TypeName extends Name with DataPrinter {
 /// Type name
 class DartTypeName extends TypeName with DataPrinter {
   /// Instantiate a type name definition.
-  DartTypeName({
-    required String name,
-    bool isNonNull = false,
-  }) : super(name: name, isNonNull: isNonNull);
+  DartTypeName({required String name, bool isNonNull = false})
+    : super(name: name, isNonNull: isNonNull);
 
   @override
   String normalize(String name) => '$name${isNonNull ? '' : '?'}';
@@ -118,10 +110,8 @@ class DartTypeName extends TypeName with DataPrinter {
 /// Type name
 class ListOfTypeName extends TypeName with DataPrinter {
   /// Instantiate a type name definition.
-  ListOfTypeName({
-    required this.typeName,
-    this.isNonNull = true,
-  }) : super(name: typeName.name, isNonNull: isNonNull);
+  ListOfTypeName({required this.typeName, this.isNonNull = true})
+    : super(name: typeName.name, isNonNull: isNonNull);
 
   /// Internal type name
   final TypeName typeName;
@@ -132,9 +122,9 @@ class ListOfTypeName extends TypeName with DataPrinter {
 
   @override
   Map<String, Object> get namedProps => {
-        'typeName': typeName,
-        'isNonNull': isNonNull,
-      };
+    'typeName': typeName,
+    'isNonNull': isNonNull,
+  };
 
   @override
   String normalize(String? name) =>

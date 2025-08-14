@@ -48,80 +48,99 @@ void main() {
   });
 }
 
-final LibraryDefinition libraryDefinition =
-    LibraryDefinition(basename: r'query.graphql', queries: [
-  QueryDefinition(
+final LibraryDefinition libraryDefinition = LibraryDefinition(
+  basename: r'query.graphql',
+  queries: [
+    QueryDefinition(
       name: QueryName(name: r'SomeQuery$_QueryRoot'),
       operationName: r'some_query',
       classes: [
-        EnumDefinition(name: EnumName(name: r'MyEnum'), values: [
-          EnumValueDefinition(name: EnumValueName(name: r'value1')),
-          EnumValueDefinition(name: EnumValueName(name: r'value2')),
-          EnumValueDefinition(name: EnumValueName(name: r'ARTEMIS_UNKNOWN'))
-        ]),
+        EnumDefinition(
+          name: EnumName(name: r'MyEnum'),
+          values: [
+            EnumValueDefinition(name: EnumValueName(name: r'value1')),
+            EnumValueDefinition(name: EnumValueName(name: r'value2')),
+            EnumValueDefinition(name: EnumValueName(name: r'ARTEMIS_UNKNOWN')),
+          ],
+        ),
         ClassDefinition(
-            name: ClassName(name: r'SomeQuery$_QueryRoot$_SomeObject'),
-            properties: [
-              ClassProperty(
-                  type: DartTypeName(name: r'String'),
-                  name: ClassPropertyName(name: r's'),
-                  isResolveType: false)
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: false),
+          name: ClassName(name: r'SomeQuery$_QueryRoot$_SomeObject'),
+          properties: [
+            ClassProperty(
+              type: DartTypeName(name: r'String'),
+              name: ClassPropertyName(name: r's'),
+              isResolveType: false,
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: false,
+        ),
         ClassDefinition(
-            name: ClassName(name: r'SomeQuery$_QueryRoot'),
-            properties: [
-              ClassProperty(
-                  type: TypeName(name: r'SomeQuery$_QueryRoot$_SomeObject'),
-                  name: ClassPropertyName(name: r'o'),
-                  isResolveType: false)
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: false),
+          name: ClassName(name: r'SomeQuery$_QueryRoot'),
+          properties: [
+            ClassProperty(
+              type: TypeName(name: r'SomeQuery$_QueryRoot$_SomeObject'),
+              name: ClassPropertyName(name: r'o'),
+              isResolveType: false,
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: false,
+        ),
         ClassDefinition(
-            name: ClassName(name: r'ComplexInput'),
-            properties: [
-              ClassProperty(
-                  type: DartTypeName(name: r'String', isNonNull: true),
-                  name: ClassPropertyName(name: r's'),
-                  isResolveType: false),
-              ClassProperty(
-                  type: TypeName(name: r'MyEnum'),
-                  name: ClassPropertyName(name: r'e'),
-                  annotations: [
-                    r'JsonKey(unknownEnumValue: MyEnum.artemisUnknown)'
-                  ],
-                  isResolveType: false),
-              ClassProperty(
-                  type: ListOfTypeName(
-                      typeName: DartTypeName(name: r'String'),
-                      isNonNull: false),
-                  name: ClassPropertyName(name: r'ls'),
-                  isResolveType: false),
-              ClassProperty(
-                  type: ListOfTypeName(
-                      typeName: ListOfTypeName(
-                          typeName: DartTypeName(name: r'int'),
-                          isNonNull: false),
-                      isNonNull: false),
-                  name: ClassPropertyName(name: r'i'),
-                  isResolveType: false)
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: true)
+          name: ClassName(name: r'ComplexInput'),
+          properties: [
+            ClassProperty(
+              type: DartTypeName(name: r'String', isNonNull: true),
+              name: ClassPropertyName(name: r's'),
+              isResolveType: false,
+            ),
+            ClassProperty(
+              type: TypeName(name: r'MyEnum'),
+              name: ClassPropertyName(name: r'e'),
+              annotations: [
+                r'JsonKey(unknownEnumValue: MyEnum.artemisUnknown)',
+              ],
+              isResolveType: false,
+            ),
+            ClassProperty(
+              type: ListOfTypeName(
+                typeName: DartTypeName(name: r'String'),
+                isNonNull: false,
+              ),
+              name: ClassPropertyName(name: r'ls'),
+              isResolveType: false,
+            ),
+            ClassProperty(
+              type: ListOfTypeName(
+                typeName: ListOfTypeName(
+                  typeName: DartTypeName(name: r'int'),
+                  isNonNull: false,
+                ),
+                isNonNull: false,
+              ),
+              name: ClassPropertyName(name: r'i'),
+              isResolveType: false,
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: true,
+        ),
       ],
       inputs: [
         QueryInput(
-            type: TypeName(name: r'ComplexInput', isNonNull: true),
-            name: QueryInputName(name: r'filter'))
+          type: TypeName(name: r'ComplexInput', isNonNull: true),
+          name: QueryInputName(name: r'filter'),
+        ),
       ],
       generateHelpers: true,
-      suffix: r'Query')
-]);
+      suffix: r'Query',
+    ),
+  ],
+);
 
 const generatedFile = r'''// GENERATED CODE - DO NOT MODIFY BY HAND
 

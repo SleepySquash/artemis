@@ -24,8 +24,9 @@ String _addGraphQLExtensionToPathIfNeeded(String path) {
 }
 
 List<String> _builderOptionsToExpectedOutputs(BuilderOptions builderOptions) {
-  final schemaMapping =
-      GeneratorOptions.fromJson(builderOptions.config).schemaMapping;
+  final schemaMapping = GeneratorOptions.fromJson(
+    builderOptions.config,
+  ).schemaMapping;
 
   if (schemaMapping.isEmpty) {
     throw MissingBuildConfigurationException('schema_mapping');
@@ -52,8 +53,8 @@ List<String> _builderOptionsToExpectedOutputs(BuilderOptions builderOptions) {
 class GraphQLQueryBuilder implements Builder {
   /// Creates a builder from [BuilderOptions].
   GraphQLQueryBuilder(BuilderOptions builderOptions)
-      : options = GeneratorOptions.fromJson(builderOptions.config),
-        expectedOutputs = _builderOptionsToExpectedOutputs(builderOptions);
+    : options = GeneratorOptions.fromJson(builderOptions.config),
+      expectedOutputs = _builderOptionsToExpectedOutputs(builderOptions);
 
   /// This generator options, gathered from `build.yaml` file.
   final GeneratorOptions options;
@@ -68,9 +69,7 @@ class GraphQLQueryBuilder implements Builder {
   OnBuildQuery? onBuild;
 
   @override
-  Map<String, List<String>> get buildExtensions => {
-        r'$lib$': expectedOutputs,
-      };
+  Map<String, List<String>> get buildExtensions => {r'$lib$': expectedOutputs};
 
   /// read asset files
   Future<List<DocumentNode>> readGraphQlFiles(
@@ -81,10 +80,8 @@ class GraphQLQueryBuilder implements Builder {
 
     return await schemaAssetStream
         .asyncMap(
-          (asset) async => parseString(
-            await buildStep.readAsString(asset),
-            url: asset.path,
-          ),
+          (asset) async =>
+              parseString(await buildStep.readAsString(asset), url: asset.path),
         )
         .toList();
   }
@@ -108,9 +105,7 @@ class GraphQLQueryBuilder implements Builder {
     }
 
     for (final schemaMap in options.schemaMapping) {
-      List<FragmentDefinitionNode> schemaCommonFragments = [
-        ...fragmentsCommon,
-      ];
+      List<FragmentDefinitionNode> schemaCommonFragments = [...fragmentsCommon];
       final schemaFragmentsGlob = schemaMap.fragmentsGlob;
       if (schemaFragmentsGlob != null) {
         final schemaFragments =
@@ -160,25 +155,25 @@ class GraphQLQueryBuilder implements Builder {
       }
 
       if (schemaMap.appendTypeName) {
-        gqlDocs = gqlDocs.map(
-          (doc) {
-            final transformed =
-                transform(doc, [AppendTypename(schemaMap.typeNameField)]);
+        gqlDocs = gqlDocs.map((doc) {
+          final transformed = transform(doc, [
+            AppendTypename(schemaMap.typeNameField),
+          ]);
 
-            // transform makes definitions growable: false so just recreate it again
-            // as far as we need to add some elements there lately
-            return DocumentNode(
-              definitions: List.from(transformed.definitions),
-              span: transformed.span,
-            );
-          },
-        ).toList();
+          // transform makes definitions growable: false so just recreate it again
+          // as far as we need to add some elements there lately
+          return DocumentNode(
+            definitions: List.from(transformed.definitions),
+            span: transformed.span,
+          );
+        }).toList();
 
         schemaCommonFragments = schemaCommonFragments
-            .map((fragments) => transform(
-                  fragments,
-                  [AppendTypename(schemaMap.typeNameField)],
-                ))
+            .map(
+              (fragments) => transform(fragments, [
+                AppendTypename(schemaMap.typeNameField),
+              ]),
+            )
             .toList();
       }
 
@@ -211,10 +206,14 @@ class GraphQLQueryBuilder implements Builder {
       await buildStep.writeAsString(outputFileId, buffer.toString());
 
       if (!output.endsWith('.graphql.dart')) {
-        final forwarderOutputFileId =
-            AssetId(buildStep.inputId.package, output);
+        final forwarderOutputFileId = AssetId(
+          buildStep.inputId.package,
+          output,
+        );
         await buildStep.writeAsString(
-            forwarderOutputFileId, writeLibraryForwarder(libDefinition));
+          forwarderOutputFileId,
+          writeLibraryForwarder(libDefinition),
+        );
       }
     }
   }

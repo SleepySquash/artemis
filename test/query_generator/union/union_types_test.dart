@@ -73,133 +73,159 @@ final String graphQLSchema = '''
   }
 ''';
 
-final LibraryDefinition libraryDefinition =
-    LibraryDefinition(basename: r'query.graphql', queries: [
-  QueryDefinition(
+final LibraryDefinition libraryDefinition = LibraryDefinition(
+  basename: r'query.graphql',
+  queries: [
+    QueryDefinition(
       name: QueryName(name: r'SomeQuery$_SomeObject'),
       operationName: r'some_query',
       classes: [
         ClassDefinition(
-            name: ClassName(name: r'SomeQuery$_SomeObject$_SomeUnion$_TypeA'),
-            properties: [
-              ClassProperty(
-                  type: DartTypeName(name: r'int'),
-                  name: ClassPropertyName(name: r'a'),
-                  isResolveType: false),
-              ClassProperty(
-                  type: DartTypeName(name: r'String'),
-                  name: ClassPropertyName(name: r'_'),
-                  annotations: [r'''JsonKey(name: '_')'''],
-                  isResolveType: false),
-              ClassProperty(
-                  type: DartTypeName(name: r'String'),
-                  name: ClassPropertyName(name: r'_a'),
-                  annotations: [r'''JsonKey(name: '_a')'''],
-                  isResolveType: false),
-              ClassProperty(
-                  type: DartTypeName(name: r'String'),
-                  name: ClassPropertyName(name: r'_a_a'),
-                  annotations: [r'''JsonKey(name: '_a_a')'''],
-                  isResolveType: false),
-              ClassProperty(
-                  type: DartTypeName(name: r'String'),
-                  name: ClassPropertyName(name: r'_a_a_'),
-                  annotations: [r'''JsonKey(name: '_a_a_')'''],
-                  isResolveType: false),
-              ClassProperty(
-                  type: DartTypeName(name: r'String'),
-                  name: ClassPropertyName(name: r'_new'),
-                  annotations: [r'''JsonKey(name: '_new')'''],
-                  isResolveType: false),
-              ClassProperty(
-                  type: TypeName(name: r'String'),
-                  name: ClassPropertyName(name: r'__typename'),
-                  annotations: [r'''JsonKey(name: '__typename')'''],
-                  isResolveType: true)
-            ],
-            extension: ClassName(name: r'SomeQuery$_SomeObject$_SomeUnion'),
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: false),
+          name: ClassName(name: r'SomeQuery$_SomeObject$_SomeUnion$_TypeA'),
+          properties: [
+            ClassProperty(
+              type: DartTypeName(name: r'int'),
+              name: ClassPropertyName(name: r'a'),
+              isResolveType: false,
+            ),
+            ClassProperty(
+              type: DartTypeName(name: r'String'),
+              name: ClassPropertyName(name: r'_'),
+              annotations: [r'''JsonKey(name: '_')'''],
+              isResolveType: false,
+            ),
+            ClassProperty(
+              type: DartTypeName(name: r'String'),
+              name: ClassPropertyName(name: r'_a'),
+              annotations: [r'''JsonKey(name: '_a')'''],
+              isResolveType: false,
+            ),
+            ClassProperty(
+              type: DartTypeName(name: r'String'),
+              name: ClassPropertyName(name: r'_a_a'),
+              annotations: [r'''JsonKey(name: '_a_a')'''],
+              isResolveType: false,
+            ),
+            ClassProperty(
+              type: DartTypeName(name: r'String'),
+              name: ClassPropertyName(name: r'_a_a_'),
+              annotations: [r'''JsonKey(name: '_a_a_')'''],
+              isResolveType: false,
+            ),
+            ClassProperty(
+              type: DartTypeName(name: r'String'),
+              name: ClassPropertyName(name: r'_new'),
+              annotations: [r'''JsonKey(name: '_new')'''],
+              isResolveType: false,
+            ),
+            ClassProperty(
+              type: TypeName(name: r'String'),
+              name: ClassPropertyName(name: r'__typename'),
+              annotations: [r'''JsonKey(name: '__typename')'''],
+              isResolveType: true,
+            ),
+          ],
+          extension: ClassName(name: r'SomeQuery$_SomeObject$_SomeUnion'),
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: false,
+        ),
         ClassDefinition(
-            name: ClassName(name: r'SomeQuery$_SomeObject$_SomeUnion$_TypeB'),
-            properties: [
-              ClassProperty(
-                  type: DartTypeName(name: r'int'),
-                  name: ClassPropertyName(name: r'b'),
-                  isResolveType: false),
-              ClassProperty(
-                  type: DartTypeName(name: r'String'),
-                  name: ClassPropertyName(name: r'_'),
-                  annotations: [r'''JsonKey(name: '_')'''],
-                  isResolveType: false),
-              ClassProperty(
-                  type: DartTypeName(name: r'String'),
-                  name: ClassPropertyName(name: r'_b'),
-                  annotations: [r'''JsonKey(name: '_b')'''],
-                  isResolveType: false),
-              ClassProperty(
-                  type: DartTypeName(name: r'String'),
-                  name: ClassPropertyName(name: r'_b_b'),
-                  annotations: [r'''JsonKey(name: '_b_b')'''],
-                  isResolveType: false),
-              ClassProperty(
-                  type: DartTypeName(name: r'String'),
-                  name: ClassPropertyName(name: r'_b_b_'),
-                  annotations: [r'''JsonKey(name: '_b_b_')'''],
-                  isResolveType: false),
-              ClassProperty(
-                  type: DartTypeName(name: r'String'),
-                  name: ClassPropertyName(name: r'new'),
-                  annotations: [r'''JsonKey(name: 'new')'''],
-                  isResolveType: false),
-              ClassProperty(
-                  type: DartTypeName(name: r'String'),
-                  name: ClassPropertyName(name: r'IN'),
-                  annotations: [r'''JsonKey(name: 'IN')'''],
-                  isResolveType: false),
-              ClassProperty(
-                  type: TypeName(name: r'String'),
-                  name: ClassPropertyName(name: r'__typename'),
-                  annotations: [r'''JsonKey(name: '__typename')'''],
-                  isResolveType: true)
-            ],
-            extension: ClassName(name: r'SomeQuery$_SomeObject$_SomeUnion'),
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: false),
+          name: ClassName(name: r'SomeQuery$_SomeObject$_SomeUnion$_TypeB'),
+          properties: [
+            ClassProperty(
+              type: DartTypeName(name: r'int'),
+              name: ClassPropertyName(name: r'b'),
+              isResolveType: false,
+            ),
+            ClassProperty(
+              type: DartTypeName(name: r'String'),
+              name: ClassPropertyName(name: r'_'),
+              annotations: [r'''JsonKey(name: '_')'''],
+              isResolveType: false,
+            ),
+            ClassProperty(
+              type: DartTypeName(name: r'String'),
+              name: ClassPropertyName(name: r'_b'),
+              annotations: [r'''JsonKey(name: '_b')'''],
+              isResolveType: false,
+            ),
+            ClassProperty(
+              type: DartTypeName(name: r'String'),
+              name: ClassPropertyName(name: r'_b_b'),
+              annotations: [r'''JsonKey(name: '_b_b')'''],
+              isResolveType: false,
+            ),
+            ClassProperty(
+              type: DartTypeName(name: r'String'),
+              name: ClassPropertyName(name: r'_b_b_'),
+              annotations: [r'''JsonKey(name: '_b_b_')'''],
+              isResolveType: false,
+            ),
+            ClassProperty(
+              type: DartTypeName(name: r'String'),
+              name: ClassPropertyName(name: r'new'),
+              annotations: [r'''JsonKey(name: 'new')'''],
+              isResolveType: false,
+            ),
+            ClassProperty(
+              type: DartTypeName(name: r'String'),
+              name: ClassPropertyName(name: r'IN'),
+              annotations: [r'''JsonKey(name: 'IN')'''],
+              isResolveType: false,
+            ),
+            ClassProperty(
+              type: TypeName(name: r'String'),
+              name: ClassPropertyName(name: r'__typename'),
+              annotations: [r'''JsonKey(name: '__typename')'''],
+              isResolveType: true,
+            ),
+          ],
+          extension: ClassName(name: r'SomeQuery$_SomeObject$_SomeUnion'),
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: false,
+        ),
         ClassDefinition(
-            name: ClassName(name: r'SomeQuery$_SomeObject$_SomeUnion'),
-            properties: [
-              ClassProperty(
-                  type: TypeName(name: r'String'),
-                  name: ClassPropertyName(name: r'__typename'),
-                  annotations: [r'''JsonKey(name: '__typename')'''],
-                  isResolveType: true)
-            ],
-            factoryPossibilities: {
-              r'TypeA':
-                  ClassName(name: r'SomeQuery$_SomeObject$_SomeUnion$_TypeA'),
-              r'TypeB':
-                  ClassName(name: r'SomeQuery$_SomeObject$_SomeUnion$_TypeB')
-            },
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: false),
+          name: ClassName(name: r'SomeQuery$_SomeObject$_SomeUnion'),
+          properties: [
+            ClassProperty(
+              type: TypeName(name: r'String'),
+              name: ClassPropertyName(name: r'__typename'),
+              annotations: [r'''JsonKey(name: '__typename')'''],
+              isResolveType: true,
+            ),
+          ],
+          factoryPossibilities: {
+            r'TypeA': ClassName(
+              name: r'SomeQuery$_SomeObject$_SomeUnion$_TypeA',
+            ),
+            r'TypeB': ClassName(
+              name: r'SomeQuery$_SomeObject$_SomeUnion$_TypeB',
+            ),
+          },
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: false,
+        ),
         ClassDefinition(
-            name: ClassName(name: r'SomeQuery$_SomeObject'),
-            properties: [
-              ClassProperty(
-                  type: TypeName(name: r'SomeQuery$_SomeObject$_SomeUnion'),
-                  name: ClassPropertyName(name: r'o'),
-                  isResolveType: false)
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: false)
+          name: ClassName(name: r'SomeQuery$_SomeObject'),
+          properties: [
+            ClassProperty(
+              type: TypeName(name: r'SomeQuery$_SomeObject$_SomeUnion'),
+              name: ClassPropertyName(name: r'o'),
+              isResolveType: false,
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: false,
+        ),
       ],
       generateHelpers: false,
-      suffix: r'Query')
-]);
+      suffix: r'Query',
+    ),
+  ],
+);
 
 const generatedFile = r'''// GENERATED CODE - DO NOT MODIFY BY HAND
 

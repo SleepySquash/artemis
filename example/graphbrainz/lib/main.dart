@@ -3,9 +3,7 @@ import 'package:artemis/artemis.dart';
 import 'queries/ed_sheeran.query.dart';
 
 void main() async {
-  final client = ArtemisClient(
-    'https://graphbrainz.herokuapp.com/',
-  );
+  final client = ArtemisClient('https://graphbrainz.herokuapp.com/');
 
   final query = EdSheeranQuery();
   final query2 = EdSheeranQuery();

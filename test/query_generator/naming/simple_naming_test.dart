@@ -52,52 +52,61 @@ void main() {
   });
 }
 
-final LibraryDefinition libraryDefinition =
-    LibraryDefinition(basename: r'query.graphql', queries: [
-  QueryDefinition(
+final LibraryDefinition libraryDefinition = LibraryDefinition(
+  basename: r'query.graphql',
+  queries: [
+    QueryDefinition(
       name: QueryName(name: r'ClientEventsData$_Query'),
       operationName: r'ClientEventsData',
       classes: [
         ClassDefinition(
-            name: ClassName(name: r'ClientEventItem'),
-            properties: [
-              ClassProperty(
-                  type: DartTypeName(name: r'int', isNonNull: true),
-                  name: ClassPropertyName(name: r'type'),
-                  isResolveType: false)
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: false),
+          name: ClassName(name: r'ClientEventItem'),
+          properties: [
+            ClassProperty(
+              type: DartTypeName(name: r'int', isNonNull: true),
+              name: ClassPropertyName(name: r'type'),
+              isResolveType: false,
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: false,
+        ),
         ClassDefinition(
-            name: ClassName(name: r'ClientEventPage'),
-            properties: [
-              ClassProperty(
-                  type: ListOfTypeName(
-                      typeName:
-                          TypeName(name: r'ClientEventItem', isNonNull: true),
-                      isNonNull: true),
-                  name: ClassPropertyName(name: r'items'),
-                  isResolveType: false)
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: false),
+          name: ClassName(name: r'ClientEventPage'),
+          properties: [
+            ClassProperty(
+              type: ListOfTypeName(
+                typeName: TypeName(name: r'ClientEventItem', isNonNull: true),
+                isNonNull: true,
+              ),
+              name: ClassPropertyName(name: r'items'),
+              isResolveType: false,
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: false,
+        ),
         ClassDefinition(
-            name: ClassName(name: r'ClientEventsData$_Query'),
-            properties: [
-              ClassProperty(
-                  type: TypeName(name: r'ClientEventPage', isNonNull: true),
-                  name: ClassPropertyName(name: r'clientEvents'),
-                  isResolveType: false)
-            ],
-            factoryPossibilities: {},
-            typeNameField: ClassPropertyName(name: r'__typename'),
-            isInput: false)
+          name: ClassName(name: r'ClientEventsData$_Query'),
+          properties: [
+            ClassProperty(
+              type: TypeName(name: r'ClientEventPage', isNonNull: true),
+              name: ClassPropertyName(name: r'clientEvents'),
+              isResolveType: false,
+            ),
+          ],
+          factoryPossibilities: {},
+          typeNameField: ClassPropertyName(name: r'__typename'),
+          isInput: false,
+        ),
       ],
       generateHelpers: true,
-      suffix: r'Query')
-]);
+      suffix: r'Query',
+    ),
+  ],
+);
 
 const generatedFile = r'''// GENERATED CODE - DO NOT MODIFY BY HAND
 

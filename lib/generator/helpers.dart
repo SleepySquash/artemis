@@ -72,7 +72,9 @@ List<String> dartKeywords = const [
 ];
 
 Iterable<T> _removeDuplicatedBy<T, U>(
-    Iterable<T> list, IterableFunction<T, U> fn) {
+  Iterable<T> list,
+  IterableFunction<T, U> fn,
+) {
   final values = <U, bool>{};
   return list.where((i) {
     final value = fn(i);
@@ -121,8 +123,9 @@ extension ExtensionsOnIterable<T, U> on Iterable<T> {
   /// Merge multiple values from an iterable given a predicate without modifying
   /// the original iterable.
   Iterable<T> mergeDuplicatesBy(
-          IterableFunction<T, U> fn, MergeableFunction<T> mergeFn) =>
-      _mergeDuplicatesBy(this, fn, mergeFn);
+    IterableFunction<T, U> fn,
+    MergeableFunction<T> mergeFn,
+  ) => _mergeDuplicatesBy(this, fn, mergeFn);
 
   /// Remove duplicated values from an iterable given a predicate without
   /// modifying the original iterable.
@@ -139,9 +142,7 @@ bool hasValue(Object? obj) {
 }
 
 /// Proceeds deprecated annotation
-List<String> proceedDeprecated(
-  List<DirectiveNode>? directives,
-) {
+List<String> proceedDeprecated(List<DirectiveNode>? directives) {
   final annotations = <String>[];
 
   final deprecatedDirective = directives?.firstWhereOrNull(

@@ -39,28 +39,26 @@ class ClassDefinition extends Definition with DataPrinter {
     this.factoryPossibilities = const {},
     ClassPropertyName? typeNameField,
     this.isInput = false,
-  })  : typeNameField = typeNameField ?? ClassPropertyName(name: '__typename'),
-        super(name: name);
+  }) : typeNameField = typeNameField ?? ClassPropertyName(name: '__typename'),
+       super(name: name);
 
   @override
   Map<String, Object?> get namedProps => {
-        'name': name,
-        'properties': properties,
-        'extension': extension,
-        'implementations': implementations,
-        'mixins': mixins,
-        'factoryPossibilities': factoryPossibilities,
-        'typeNameField': typeNameField,
-        'isInput': isInput,
-      };
+    'name': name,
+    'properties': properties,
+    'extension': extension,
+    'implementations': implementations,
+    'mixins': mixins,
+    'factoryPossibilities': factoryPossibilities,
+    'typeNameField': typeNameField,
+    'isInput': isInput,
+  };
 }
 
 /// Class name.
 class ClassName extends Name with DataPrinter {
   /// Instantiate a class name definition.
-  ClassName({required String name})
-      : assert(hasValue(name)),
-        super(name: name);
+  ClassName({required String name}) : assert(hasValue(name)), super(name: name);
 
   /// Generate class name from hierarchical path
   factory ClassName.fromPath({required List<Name> path}) {
@@ -68,9 +66,7 @@ class ClassName extends Name with DataPrinter {
   }
 
   @override
-  Map<String, Object?> get namedProps => {
-        'name': name,
-      };
+  Map<String, Object?> get namedProps => {'name': name};
 
   @override
   String normalize(String name) {
