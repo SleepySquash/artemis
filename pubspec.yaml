@@ -16,7 +16,7 @@ dependencies:
   equatable: ^2.0.5
   glob: ^2.1.1
   gql_code_builder: ^0.15.1
-  gql_dedupe_link: ^4.0.0
+  gql_dedupe_link: ">=2.0.0 <5.0.0"
   gql_exec: ^1.0.0+1
   gql_http_link: ^1.1.0
   gql_link: ^1.0.0+1
