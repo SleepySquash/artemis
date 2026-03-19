@@ -36,3 +36,11 @@ dev_dependencies:
   test: ^1.22.2
   logging: ^1.1.1
   lints: ^6.0.0
+
+dependency_overrides:
+  # TODO: Unpin when `gql_code_builder` higher than `0.15.1` releases.
+  gql_code_builder:
+    git:
+      url: https://github.com/gql-dart/gql
+      path: codegen/gql_code_builder/
+      ref: 5d2850d486ee0e1f0ceba0e81c8a3ce3d2ee6c12
