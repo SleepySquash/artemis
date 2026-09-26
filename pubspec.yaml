@@ -13,14 +13,9 @@ dependencies:
   code_builder: ^4.4.0
   collection: ^1.17.1
   dart_style: ^3.1.0
-  equatable: ^2.0.5
+  equatable: ^3.0.0
   glob: ^2.1.1
-  # TODO: Unpin when `gql_code_builder` higher than `0.15.1` releases.
-  gql_code_builder:
-    git:
-      url: https://github.com/gql-dart/gql
-      path: codegen/gql_code_builder/
-      ref: 5d2850d486ee0e1f0ceba0e81c8a3ce3d2ee6c12
+  gql_code_builder: ^0.15.2
   gql_dedupe_link: ">=2.0.0 <5.0.0"
   gql_exec: ^1.0.0+1
   gql_http_link: ^1.1.0
