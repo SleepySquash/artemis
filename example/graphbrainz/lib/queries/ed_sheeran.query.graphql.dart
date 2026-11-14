@@ -189,8 +189,7 @@ final ED_SHEERAN_QUERY_DOCUMENT = DocumentNode(
               ArgumentNode(
                 name: NameNode(value: 'id'),
                 value: StringValueNode(
-                  value:
-                      'QXJ0aXN0OmI4YTdjNTFmLTM2MmMtNGRjYi1hMjU5LWJjNmUwMDk1ZjBhNg==',
+                  value: 'QXJ0aXN0OmI4YTdjNTFmLTM2MmMtNGRjYi1hMjU5LWJjNmUwMDk1ZjBhNg==',
                   isBlock: false,
                 ),
               ),

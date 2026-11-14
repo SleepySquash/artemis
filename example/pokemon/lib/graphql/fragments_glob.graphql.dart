@@ -11,12 +11,15 @@ mixin PokemonMixin {
   PokemonMixin$PokemonDimension? weight;
   PokemonMixin$PokemonAttack? attacks;
 }
+
 mixin WeightMixin {
   String? minimum;
 }
+
 mixin PokemonAttackMixin {
   List<PokemonAttackMixin$Attack?>? special;
 }
+
 mixin AttackMixin {
   String? name;
 }
