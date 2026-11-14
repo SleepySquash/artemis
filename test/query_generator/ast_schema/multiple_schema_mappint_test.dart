@@ -341,7 +341,7 @@ part 'outputA.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class BrowseArticles$Query$Articles extends JsonSerializable
-    with EquatableMixin {
+    with Equatable {
   BrowseArticles$Query$Articles();
 
   factory BrowseArticles$Query$Articles.fromJson(Map<String, dynamic> json) =>
@@ -361,7 +361,7 @@ class BrowseArticles$Query$Articles extends JsonSerializable
 }
 
 @JsonSerializable(explicitToJson: true)
-class BrowseArticles$Query extends JsonSerializable with EquatableMixin {
+class BrowseArticles$Query extends JsonSerializable with Equatable {
   BrowseArticles$Query();
 
   factory BrowseArticles$Query.fromJson(Map<String, dynamic> json) =>
@@ -453,7 +453,7 @@ part 'outputB.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class BrowseRepositories$Query$Repositories extends JsonSerializable
-    with EquatableMixin {
+    with Equatable {
   BrowseRepositories$Query$Repositories();
 
   factory BrowseRepositories$Query$Repositories.fromJson(
@@ -478,7 +478,7 @@ class BrowseRepositories$Query$Repositories extends JsonSerializable
 }
 
 @JsonSerializable(explicitToJson: true)
-class BrowseRepositories$Query extends JsonSerializable with EquatableMixin {
+class BrowseRepositories$Query extends JsonSerializable with Equatable {
   BrowseRepositories$Query();
 
   factory BrowseRepositories$Query.fromJson(Map<String, dynamic> json) =>
@@ -493,7 +493,7 @@ class BrowseRepositories$Query extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class NotificationOptionInput extends JsonSerializable with EquatableMixin {
+class NotificationOptionInput extends JsonSerializable with Equatable {
   NotificationOptionInput({
     this.type,
     this.enabled,
@@ -545,7 +545,7 @@ enum NotificationType {
 }
 
 @JsonSerializable(explicitToJson: true)
-class BrowseRepositoriesArguments extends JsonSerializable with EquatableMixin {
+class BrowseRepositoriesArguments extends JsonSerializable with Equatable {
   BrowseRepositoriesArguments({this.notificationTypes});
 
   @override

@@ -152,7 +152,7 @@ part 'query.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class NewUserSub$Subscription$User extends JsonSerializable
-    with EquatableMixin {
+    with Equatable {
   NewUserSub$Subscription$User();
 
   factory NewUserSub$Subscription$User.fromJson(Map<String, dynamic> json) =>
@@ -172,7 +172,7 @@ class NewUserSub$Subscription$User extends JsonSerializable
 }
 
 @JsonSerializable(explicitToJson: true)
-class NewUserSub$Subscription extends JsonSerializable with EquatableMixin {
+class NewUserSub$Subscription extends JsonSerializable with Equatable {
   NewUserSub$Subscription();
 
   factory NewUserSub$Subscription.fromJson(Map<String, dynamic> json) =>

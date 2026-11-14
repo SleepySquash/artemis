@@ -192,7 +192,7 @@ mixin UserFragMixin {
 
 @JsonSerializable(explicitToJson: true)
 class Custom$Query$Node$User extends Custom$Query$Node
-    with EquatableMixin, UserFragMixin {
+    with Equatable, UserFragMixin {
   Custom$Query$Node$User();
 
   factory Custom$Query$Node$User.fromJson(Map<String, dynamic> json) =>
@@ -206,7 +206,7 @@ class Custom$Query$Node$User extends Custom$Query$Node
 
 @JsonSerializable(explicitToJson: true)
 class Custom$Query$Node$ChatMessage$User extends JsonSerializable
-    with EquatableMixin, UserFragMixin {
+    with Equatable, UserFragMixin {
   Custom$Query$Node$ChatMessage$User();
 
   factory Custom$Query$Node$ChatMessage$User.fromJson(
@@ -222,7 +222,7 @@ class Custom$Query$Node$ChatMessage$User extends JsonSerializable
 
 @JsonSerializable(explicitToJson: true)
 class Custom$Query$Node$ChatMessage extends Custom$Query$Node
-    with EquatableMixin {
+    with Equatable {
   Custom$Query$Node$ChatMessage();
 
   factory Custom$Query$Node$ChatMessage.fromJson(Map<String, dynamic> json) =>
@@ -239,7 +239,7 @@ class Custom$Query$Node$ChatMessage extends Custom$Query$Node
 }
 
 @JsonSerializable(explicitToJson: true)
-class Custom$Query$Node extends JsonSerializable with EquatableMixin {
+class Custom$Query$Node extends JsonSerializable with Equatable {
   Custom$Query$Node();
 
   factory Custom$Query$Node.fromJson(Map<String, dynamic> json) {
@@ -274,7 +274,7 @@ class Custom$Query$Node extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class Custom$Query extends JsonSerializable with EquatableMixin {
+class Custom$Query extends JsonSerializable with Equatable {
   Custom$Query();
 
   factory Custom$Query.fromJson(Map<String, dynamic> json) =>

@@ -9,7 +9,7 @@ part 'ed_sheeran.query.graphql.g.dart';
 @JsonSerializable(explicitToJson: true)
 class EdSheeran$Query$Node$Artist$ReleaseConnection$Release
     extends JsonSerializable
-    with EquatableMixin {
+    with Equatable {
   EdSheeran$Query$Node$Artist$ReleaseConnection$Release();
 
   factory EdSheeran$Query$Node$Artist$ReleaseConnection$Release.fromJson(
@@ -31,7 +31,7 @@ class EdSheeran$Query$Node$Artist$ReleaseConnection$Release
 
 @JsonSerializable(explicitToJson: true)
 class EdSheeran$Query$Node$Artist$ReleaseConnection extends JsonSerializable
-    with EquatableMixin {
+    with Equatable {
   EdSheeran$Query$Node$Artist$ReleaseConnection();
 
   factory EdSheeran$Query$Node$Artist$ReleaseConnection.fromJson(
@@ -50,7 +50,7 @@ class EdSheeran$Query$Node$Artist$ReleaseConnection extends JsonSerializable
 
 @JsonSerializable(explicitToJson: true)
 class EdSheeran$Query$Node$Artist$LifeSpan extends JsonSerializable
-    with EquatableMixin {
+    with Equatable {
   EdSheeran$Query$Node$Artist$LifeSpan();
 
   factory EdSheeran$Query$Node$Artist$LifeSpan.fromJson(
@@ -69,7 +69,7 @@ class EdSheeran$Query$Node$Artist$LifeSpan extends JsonSerializable
 
 @JsonSerializable(explicitToJson: true)
 class EdSheeran$Query$Node$Artist$SpotifyArtist extends JsonSerializable
-    with EquatableMixin {
+    with Equatable {
   EdSheeran$Query$Node$Artist$SpotifyArtist();
 
   factory EdSheeran$Query$Node$Artist$SpotifyArtist.fromJson(
@@ -87,8 +87,7 @@ class EdSheeran$Query$Node$Artist$SpotifyArtist extends JsonSerializable
 }
 
 @JsonSerializable(explicitToJson: true)
-class EdSheeran$Query$Node$Artist extends EdSheeran$Query$Node
-    with EquatableMixin {
+class EdSheeran$Query$Node$Artist extends EdSheeran$Query$Node with Equatable {
   EdSheeran$Query$Node$Artist();
 
   factory EdSheeran$Query$Node$Artist.fromJson(Map<String, dynamic> json) =>
@@ -112,7 +111,7 @@ class EdSheeran$Query$Node$Artist extends EdSheeran$Query$Node
 }
 
 @JsonSerializable(explicitToJson: true)
-class EdSheeran$Query$Node extends JsonSerializable with EquatableMixin {
+class EdSheeran$Query$Node extends JsonSerializable with Equatable {
   EdSheeran$Query$Node();
 
   factory EdSheeran$Query$Node.fromJson(Map<String, dynamic> json) {
@@ -144,7 +143,7 @@ class EdSheeran$Query$Node extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class EdSheeran$Query extends JsonSerializable with EquatableMixin {
+class EdSheeran$Query extends JsonSerializable with Equatable {
   EdSheeran$Query();
 
   factory EdSheeran$Query.fromJson(Map<String, dynamic> json) =>

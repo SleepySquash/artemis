@@ -143,7 +143,7 @@ mixin MyFragmentMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class SomeObject extends JsonSerializable with EquatableMixin, MyFragmentMixin {
+class SomeObject extends JsonSerializable with Equatable, MyFragmentMixin {
   SomeObject();
 
   factory SomeObject.fromJson(Map<String, dynamic> json) =>
@@ -156,7 +156,7 @@ class SomeObject extends JsonSerializable with EquatableMixin, MyFragmentMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class MoreData extends JsonSerializable with EquatableMixin {
+class MoreData extends JsonSerializable with Equatable {
   MoreData();
 
   factory MoreData.fromJson(Map<String, dynamic> json) =>
@@ -171,7 +171,7 @@ class MoreData extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class SomeQuery$QueryResponse extends JsonSerializable with EquatableMixin {
+class SomeQuery$QueryResponse extends JsonSerializable with Equatable {
   SomeQuery$QueryResponse();
 
   factory SomeQuery$QueryResponse.fromJson(Map<String, dynamic> json) =>

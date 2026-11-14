@@ -9,7 +9,7 @@ part 'messages_with_users.graphql.g.dart';
 @JsonSerializable(explicitToJson: true)
 class MessagesWithUsers$SubscriptionRoot$Messages$Profile
     extends JsonSerializable
-    with EquatableMixin {
+    with Equatable {
   MessagesWithUsers$SubscriptionRoot$Messages$Profile();
 
   factory MessagesWithUsers$SubscriptionRoot$Messages$Profile.fromJson(
@@ -30,7 +30,7 @@ class MessagesWithUsers$SubscriptionRoot$Messages$Profile
 
 @JsonSerializable(explicitToJson: true)
 class MessagesWithUsers$SubscriptionRoot$Messages extends JsonSerializable
-    with EquatableMixin {
+    with Equatable {
   MessagesWithUsers$SubscriptionRoot$Messages();
 
   factory MessagesWithUsers$SubscriptionRoot$Messages.fromJson(
@@ -53,7 +53,7 @@ class MessagesWithUsers$SubscriptionRoot$Messages extends JsonSerializable
 
 @JsonSerializable(explicitToJson: true)
 class MessagesWithUsers$SubscriptionRoot extends JsonSerializable
-    with EquatableMixin {
+    with Equatable {
   MessagesWithUsers$SubscriptionRoot();
 
   factory MessagesWithUsers$SubscriptionRoot.fromJson(

@@ -236,7 +236,7 @@ part 'query.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class SomeQuery$SomeObject$SomeUnion$TypeA
-    extends SomeQuery$SomeObject$SomeUnion with EquatableMixin {
+    extends SomeQuery$SomeObject$SomeUnion with Equatable {
   SomeQuery$SomeObject$SomeUnion$TypeA();
 
   factory SomeQuery$SomeObject$SomeUnion$TypeA.fromJson(
@@ -273,7 +273,7 @@ class SomeQuery$SomeObject$SomeUnion$TypeA
 
 @JsonSerializable(explicitToJson: true)
 class SomeQuery$SomeObject$SomeUnion$TypeB
-    extends SomeQuery$SomeObject$SomeUnion with EquatableMixin {
+    extends SomeQuery$SomeObject$SomeUnion with Equatable {
   SomeQuery$SomeObject$SomeUnion$TypeB();
 
   factory SomeQuery$SomeObject$SomeUnion$TypeB.fromJson(
@@ -313,7 +313,7 @@ class SomeQuery$SomeObject$SomeUnion$TypeB
 
 @JsonSerializable(explicitToJson: true)
 class SomeQuery$SomeObject$SomeUnion extends JsonSerializable
-    with EquatableMixin {
+    with Equatable {
   SomeQuery$SomeObject$SomeUnion();
 
   factory SomeQuery$SomeObject$SomeUnion.fromJson(Map<String, dynamic> json) {
@@ -346,7 +346,7 @@ class SomeQuery$SomeObject$SomeUnion extends JsonSerializable
 }
 
 @JsonSerializable(explicitToJson: true)
-class SomeQuery$SomeObject extends JsonSerializable with EquatableMixin {
+class SomeQuery$SomeObject extends JsonSerializable with Equatable {
   SomeQuery$SomeObject();
 
   factory SomeQuery$SomeObject.fromJson(Map<String, dynamic> json) =>

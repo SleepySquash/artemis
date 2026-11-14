@@ -185,7 +185,7 @@ part 'query.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class Custom$MutationRoot$MutationResponse extends JsonSerializable
-    with EquatableMixin {
+    with Equatable {
   Custom$MutationRoot$MutationResponse();
 
   factory Custom$MutationRoot$MutationResponse.fromJson(
@@ -202,7 +202,7 @@ class Custom$MutationRoot$MutationResponse extends JsonSerializable
 }
 
 @JsonSerializable(explicitToJson: true)
-class Custom$MutationRoot extends JsonSerializable with EquatableMixin {
+class Custom$MutationRoot extends JsonSerializable with Equatable {
   Custom$MutationRoot();
 
   factory Custom$MutationRoot.fromJson(Map<String, dynamic> json) =>
@@ -217,7 +217,7 @@ class Custom$MutationRoot extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class Input extends JsonSerializable with EquatableMixin {
+class Input extends JsonSerializable with Equatable {
   Input({required this.s});
 
   factory Input.fromJson(Map<String, dynamic> json) => _$InputFromJson(json);
@@ -232,7 +232,7 @@ class Input extends JsonSerializable with EquatableMixin {
 
 @JsonSerializable(explicitToJson: true)
 class $custom$MutationRoot$$MutationResponse extends JsonSerializable
-    with EquatableMixin {
+    with Equatable {
   $custom$MutationRoot$$MutationResponse();
 
   factory $custom$MutationRoot$$MutationResponse.fromJson(
@@ -250,7 +250,7 @@ class $custom$MutationRoot$$MutationResponse extends JsonSerializable
 }
 
 @JsonSerializable(explicitToJson: true)
-class $custom$MutationRoot extends JsonSerializable with EquatableMixin {
+class $custom$MutationRoot extends JsonSerializable with Equatable {
   $custom$MutationRoot();
 
   factory $custom$MutationRoot.fromJson(Map<String, dynamic> json) =>
@@ -266,7 +266,7 @@ class $custom$MutationRoot extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class $Input extends JsonSerializable with EquatableMixin {
+class $Input extends JsonSerializable with Equatable {
   $Input({required this.$s});
 
   factory $Input.fromJson(Map<String, dynamic> json) => _$$InputFromJson(json);
@@ -281,7 +281,7 @@ class $Input extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class CustomArguments extends JsonSerializable with EquatableMixin {
+class CustomArguments extends JsonSerializable with Equatable {
   CustomArguments({required this.input});
 
   @override
@@ -359,7 +359,7 @@ class CustomMutation
 }
 
 @JsonSerializable(explicitToJson: true)
-class $customArguments extends JsonSerializable with EquatableMixin {
+class $customArguments extends JsonSerializable with Equatable {
   $customArguments({required this.input});
 
   @override

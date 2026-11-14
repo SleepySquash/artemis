@@ -7,7 +7,7 @@ import 'package:gql/ast.dart';
 part 'big_query.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class BigQuery$Query$Charmander extends JsonSerializable with EquatableMixin {
+class BigQuery$Query$Charmander extends JsonSerializable with Equatable {
   BigQuery$Query$Charmander();
 
   factory BigQuery$Query$Charmander.fromJson(Map<String, dynamic> json) =>
@@ -26,7 +26,7 @@ class BigQuery$Query$Charmander extends JsonSerializable with EquatableMixin {
 
 @JsonSerializable(explicitToJson: true)
 class BigQuery$Query$Pokemon$Evolutions extends JsonSerializable
-    with EquatableMixin {
+    with Equatable {
   BigQuery$Query$Pokemon$Evolutions();
 
   factory BigQuery$Query$Pokemon$Evolutions.fromJson(
@@ -46,7 +46,7 @@ class BigQuery$Query$Pokemon$Evolutions extends JsonSerializable
 }
 
 @JsonSerializable(explicitToJson: true)
-class BigQuery$Query$Pokemon extends JsonSerializable with EquatableMixin {
+class BigQuery$Query$Pokemon extends JsonSerializable with Equatable {
   BigQuery$Query$Pokemon();
 
   factory BigQuery$Query$Pokemon.fromJson(Map<String, dynamic> json) =>
@@ -68,7 +68,7 @@ class BigQuery$Query$Pokemon extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class BigQuery$Query extends JsonSerializable with EquatableMixin {
+class BigQuery$Query extends JsonSerializable with Equatable {
   BigQuery$Query();
 
   factory BigQuery$Query.fromJson(Map<String, dynamic> json) =>
@@ -86,7 +86,7 @@ class BigQuery$Query extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class BigQueryArguments extends JsonSerializable with EquatableMixin {
+class BigQueryArguments extends JsonSerializable with Equatable {
   BigQueryArguments({required this.quantity});
 
   @override

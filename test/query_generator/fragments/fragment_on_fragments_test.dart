@@ -166,7 +166,7 @@ mixin PokemonPartsMixin {
 
 @JsonSerializable(explicitToJson: true)
 class Query$Query$Pokemon extends JsonSerializable
-    with EquatableMixin, PokemonMixin, PokemonPartsMixin {
+    with Equatable, PokemonMixin, PokemonPartsMixin {
   Query$Query$Pokemon();
 
   factory Query$Query$Pokemon.fromJson(Map<String, dynamic> json) =>
@@ -179,7 +179,7 @@ class Query$Query$Pokemon extends JsonSerializable
 }
 
 @JsonSerializable(explicitToJson: true)
-class Query$Query extends JsonSerializable with EquatableMixin {
+class Query$Query extends JsonSerializable with Equatable {
   Query$Query();
 
   factory Query$Query.fromJson(Map<String, dynamic> json) =>
@@ -195,7 +195,7 @@ class Query$Query extends JsonSerializable with EquatableMixin {
 
 @JsonSerializable(explicitToJson: true)
 class PokemonMixin$Pokemon extends JsonSerializable
-    with EquatableMixin, PokemonNameMixin {
+    with Equatable, PokemonNameMixin {
   PokemonMixin$Pokemon();
 
   factory PokemonMixin$Pokemon.fromJson(Map<String, dynamic> json) =>

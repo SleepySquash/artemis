@@ -233,7 +233,7 @@ part 'query.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class CheckoutById$QueryRoot$Node$Checkout$CheckoutLineItemConnection$CheckoutLineItemEdge$ImageConnection
-    extends JsonSerializable with EquatableMixin {
+    extends JsonSerializable with Equatable {
   CheckoutById$QueryRoot$Node$Checkout$CheckoutLineItemConnection$CheckoutLineItemEdge$ImageConnection();
 
   factory CheckoutById$QueryRoot$Node$Checkout$CheckoutLineItemConnection$CheckoutLineItemEdge$ImageConnection.fromJson(
@@ -253,7 +253,7 @@ class CheckoutById$QueryRoot$Node$Checkout$CheckoutLineItemConnection$CheckoutLi
 
 @JsonSerializable(explicitToJson: true)
 class CheckoutById$QueryRoot$Node$Checkout$CheckoutLineItemConnection$CheckoutLineItemEdge
-    extends JsonSerializable with EquatableMixin {
+    extends JsonSerializable with Equatable {
   CheckoutById$QueryRoot$Node$Checkout$CheckoutLineItemConnection$CheckoutLineItemEdge();
 
   factory CheckoutById$QueryRoot$Node$Checkout$CheckoutLineItemConnection$CheckoutLineItemEdge.fromJson(
@@ -274,7 +274,7 @@ class CheckoutById$QueryRoot$Node$Checkout$CheckoutLineItemConnection$CheckoutLi
 
 @JsonSerializable(explicitToJson: true)
 class CheckoutById$QueryRoot$Node$Checkout$CheckoutLineItemConnection
-    extends JsonSerializable with EquatableMixin {
+    extends JsonSerializable with Equatable {
   CheckoutById$QueryRoot$Node$Checkout$CheckoutLineItemConnection();
 
   factory CheckoutById$QueryRoot$Node$Checkout$CheckoutLineItemConnection.fromJson(
@@ -298,7 +298,7 @@ class CheckoutById$QueryRoot$Node$Checkout$CheckoutLineItemConnection
 
 @JsonSerializable(explicitToJson: true)
 class CheckoutById$QueryRoot$Node$Checkout extends CheckoutById$QueryRoot$Node
-    with EquatableMixin {
+    with Equatable {
   CheckoutById$QueryRoot$Node$Checkout();
 
   factory CheckoutById$QueryRoot$Node$Checkout.fromJson(
@@ -318,7 +318,7 @@ class CheckoutById$QueryRoot$Node$Checkout extends CheckoutById$QueryRoot$Node
 }
 
 @JsonSerializable(explicitToJson: true)
-class CheckoutById$QueryRoot$Node extends JsonSerializable with EquatableMixin {
+class CheckoutById$QueryRoot$Node extends JsonSerializable with Equatable {
   CheckoutById$QueryRoot$Node();
 
   factory CheckoutById$QueryRoot$Node.fromJson(Map<String, dynamic> json) {
@@ -347,7 +347,7 @@ class CheckoutById$QueryRoot$Node extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class CheckoutById$QueryRoot extends JsonSerializable with EquatableMixin {
+class CheckoutById$QueryRoot extends JsonSerializable with Equatable {
   CheckoutById$QueryRoot();
 
   factory CheckoutById$QueryRoot.fromJson(Map<String, dynamic> json) =>

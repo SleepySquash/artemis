@@ -177,7 +177,7 @@ import 'package:gql/ast.dart';
 part 'query.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class Custom$Mutation$Mut extends JsonSerializable with EquatableMixin {
+class Custom$Mutation$Mut extends JsonSerializable with Equatable {
   Custom$Mutation$Mut();
 
   factory Custom$Mutation$Mut.fromJson(Map<String, dynamic> json) =>
@@ -192,7 +192,7 @@ class Custom$Mutation$Mut extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class Custom$Mutation extends JsonSerializable with EquatableMixin {
+class Custom$Mutation extends JsonSerializable with Equatable {
   Custom$Mutation();
 
   factory Custom$Mutation.fromJson(Map<String, dynamic> json) =>
@@ -207,7 +207,7 @@ class Custom$Mutation extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class Input extends JsonSerializable with EquatableMixin {
+class Input extends JsonSerializable with Equatable {
   Input({required this.s});
 
   factory Input.fromJson(Map<String, dynamic> json) => _$InputFromJson(json);
@@ -221,7 +221,7 @@ class Input extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class CustomList$Mutation$MutList extends JsonSerializable with EquatableMixin {
+class CustomList$Mutation$MutList extends JsonSerializable with Equatable {
   CustomList$Mutation$MutList();
 
   factory CustomList$Mutation$MutList.fromJson(Map<String, dynamic> json) =>
@@ -236,7 +236,7 @@ class CustomList$Mutation$MutList extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class CustomList$Mutation extends JsonSerializable with EquatableMixin {
+class CustomList$Mutation extends JsonSerializable with Equatable {
   CustomList$Mutation();
 
   factory CustomList$Mutation.fromJson(Map<String, dynamic> json) =>
@@ -251,7 +251,7 @@ class CustomList$Mutation extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class CustomArguments extends JsonSerializable with EquatableMixin {
+class CustomArguments extends JsonSerializable with Equatable {
   CustomArguments({required this.input});
 
   @override
@@ -328,7 +328,7 @@ class CustomMutation extends GraphQLQuery<Custom$Mutation, CustomArguments> {
 }
 
 @JsonSerializable(explicitToJson: true)
-class CustomListArguments extends JsonSerializable with EquatableMixin {
+class CustomListArguments extends JsonSerializable with Equatable {
   CustomListArguments({required this.input});
 
   @override

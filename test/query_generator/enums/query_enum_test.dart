@@ -105,7 +105,7 @@ part 'query.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class Custom$QueryRoot$QueryResponse extends JsonSerializable
-    with EquatableMixin {
+    with Equatable {
   Custom$QueryRoot$QueryResponse();
 
   factory Custom$QueryRoot$QueryResponse.fromJson(Map<String, dynamic> json) =>
@@ -121,7 +121,7 @@ class Custom$QueryRoot$QueryResponse extends JsonSerializable
 }
 
 @JsonSerializable(explicitToJson: true)
-class Custom$QueryRoot extends JsonSerializable with EquatableMixin {
+class Custom$QueryRoot extends JsonSerializable with Equatable {
   Custom$QueryRoot();
 
   factory Custom$QueryRoot.fromJson(Map<String, dynamic> json) =>

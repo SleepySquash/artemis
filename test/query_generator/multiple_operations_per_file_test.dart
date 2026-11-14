@@ -190,7 +190,7 @@ part 'query.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class MutData$Mutation$MutationResponse extends JsonSerializable
-    with EquatableMixin {
+    with Equatable {
   MutData$Mutation$MutationResponse();
 
   factory MutData$Mutation$MutationResponse.fromJson(
@@ -207,7 +207,7 @@ class MutData$Mutation$MutationResponse extends JsonSerializable
 }
 
 @JsonSerializable(explicitToJson: true)
-class MutData$Mutation extends JsonSerializable with EquatableMixin {
+class MutData$Mutation extends JsonSerializable with Equatable {
   MutData$Mutation();
 
   factory MutData$Mutation.fromJson(Map<String, dynamic> json) =>
@@ -222,7 +222,7 @@ class MutData$Mutation extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class Input extends JsonSerializable with EquatableMixin {
+class Input extends JsonSerializable with Equatable {
   Input({required this.s});
 
   factory Input.fromJson(Map<String, dynamic> json) => _$InputFromJson(json);
@@ -236,7 +236,7 @@ class Input extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueData$Query$QueryResponse extends JsonSerializable with EquatableMixin {
+class QueData$Query$QueryResponse extends JsonSerializable with Equatable {
   QueData$Query$QueryResponse();
 
   factory QueData$Query$QueryResponse.fromJson(Map<String, dynamic> json) =>
@@ -255,7 +255,7 @@ class QueData$Query$QueryResponse extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueData$Query extends JsonSerializable with EquatableMixin {
+class QueData$Query extends JsonSerializable with Equatable {
   QueData$Query();
 
   factory QueData$Query.fromJson(Map<String, dynamic> json) =>
@@ -270,7 +270,7 @@ class QueData$Query extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class MutDataArguments extends JsonSerializable with EquatableMixin {
+class MutDataArguments extends JsonSerializable with Equatable {
   MutDataArguments({required this.input});
 
   @override
@@ -347,7 +347,7 @@ class MutDataMutation extends GraphQLQuery<MutData$Mutation, MutDataArguments> {
 }
 
 @JsonSerializable(explicitToJson: true)
-class QueDataArguments extends JsonSerializable with EquatableMixin {
+class QueDataArguments extends JsonSerializable with Equatable {
   QueDataArguments({
     required this.intsNonNullable,
     this.stringNullable,

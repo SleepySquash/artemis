@@ -118,7 +118,7 @@ part 'query.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class Custom$MutationRoot$MutationResponse extends JsonSerializable
-    with EquatableMixin {
+    with Equatable {
   Custom$MutationRoot$MutationResponse();
 
   factory Custom$MutationRoot$MutationResponse.fromJson(
@@ -135,7 +135,7 @@ class Custom$MutationRoot$MutationResponse extends JsonSerializable
 }
 
 @JsonSerializable(explicitToJson: true)
-class Custom$MutationRoot extends JsonSerializable with EquatableMixin {
+class Custom$MutationRoot extends JsonSerializable with Equatable {
   Custom$MutationRoot();
 
   factory Custom$MutationRoot.fromJson(Map<String, dynamic> json) =>
@@ -150,7 +150,7 @@ class Custom$MutationRoot extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class Input extends JsonSerializable with EquatableMixin {
+class Input extends JsonSerializable with Equatable {
   Input({
     required this.s,
     this.d,
@@ -170,7 +170,7 @@ class Input extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class CustomArguments extends JsonSerializable with EquatableMixin {
+class CustomArguments extends JsonSerializable with Equatable {
   CustomArguments({required this.input});
 
   @override

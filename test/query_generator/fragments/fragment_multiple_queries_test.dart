@@ -211,7 +211,7 @@ mixin PokemonFragmentMixin {
 
 @JsonSerializable(explicitToJson: true)
 class GetPokemon$Query$Pokemon extends JsonSerializable
-    with EquatableMixin, PokemonFragmentMixin {
+    with Equatable, PokemonFragmentMixin {
   GetPokemon$Query$Pokemon();
 
   factory GetPokemon$Query$Pokemon.fromJson(Map<String, dynamic> json) =>
@@ -224,7 +224,7 @@ class GetPokemon$Query$Pokemon extends JsonSerializable
 }
 
 @JsonSerializable(explicitToJson: true)
-class GetPokemon$Query extends JsonSerializable with EquatableMixin {
+class GetPokemon$Query extends JsonSerializable with Equatable {
   GetPokemon$Query();
 
   factory GetPokemon$Query.fromJson(Map<String, dynamic> json) =>
@@ -240,7 +240,7 @@ class GetPokemon$Query extends JsonSerializable with EquatableMixin {
 
 @JsonSerializable(explicitToJson: true)
 class GetAllPokemons$Query$Pokemon extends JsonSerializable
-    with EquatableMixin, PokemonFragmentMixin {
+    with Equatable, PokemonFragmentMixin {
   GetAllPokemons$Query$Pokemon();
 
   factory GetAllPokemons$Query$Pokemon.fromJson(Map<String, dynamic> json) =>
@@ -253,7 +253,7 @@ class GetAllPokemons$Query$Pokemon extends JsonSerializable
 }
 
 @JsonSerializable(explicitToJson: true)
-class GetAllPokemons$Query extends JsonSerializable with EquatableMixin {
+class GetAllPokemons$Query extends JsonSerializable with Equatable {
   GetAllPokemons$Query();
 
   factory GetAllPokemons$Query.fromJson(Map<String, dynamic> json) =>
@@ -268,7 +268,7 @@ class GetAllPokemons$Query extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class GetPokemonArguments extends JsonSerializable with EquatableMixin {
+class GetPokemonArguments extends JsonSerializable with Equatable {
   GetPokemonArguments({required this.name});
 
   @override
@@ -368,7 +368,7 @@ class GetPokemonQuery
 }
 
 @JsonSerializable(explicitToJson: true)
-class GetAllPokemonsArguments extends JsonSerializable with EquatableMixin {
+class GetAllPokemonsArguments extends JsonSerializable with Equatable {
   GetAllPokemonsArguments({required this.first});
 
   @override

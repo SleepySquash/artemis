@@ -7,7 +7,7 @@ import 'package:gql/ast.dart';
 part 'simple_query.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class SimpleQuery$Query$Pokemon extends JsonSerializable with EquatableMixin {
+class SimpleQuery$Query$Pokemon extends JsonSerializable with Equatable {
   SimpleQuery$Query$Pokemon();
 
   factory SimpleQuery$Query$Pokemon.fromJson(Map<String, dynamic> json) =>
@@ -25,7 +25,7 @@ class SimpleQuery$Query$Pokemon extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class SimpleQuery$Query extends JsonSerializable with EquatableMixin {
+class SimpleQuery$Query extends JsonSerializable with Equatable {
   SimpleQuery$Query();
 
   factory SimpleQuery$Query.fromJson(Map<String, dynamic> json) =>

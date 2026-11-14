@@ -9,7 +9,7 @@ part 'search_repositories.graphql.g.dart';
 @JsonSerializable(explicitToJson: true)
 class SearchRepositories$Query$SearchResultItemConnection$SearchResultItem$Repository
     extends SearchRepositories$Query$SearchResultItemConnection$SearchResultItem
-    with EquatableMixin {
+    with Equatable {
   SearchRepositories$Query$SearchResultItemConnection$SearchResultItem$Repository();
 
   factory SearchRepositories$Query$SearchResultItemConnection$SearchResultItem$Repository.fromJson(
@@ -34,7 +34,7 @@ class SearchRepositories$Query$SearchResultItemConnection$SearchResultItem$Repos
 @JsonSerializable(explicitToJson: true)
 class SearchRepositories$Query$SearchResultItemConnection$SearchResultItem
     extends JsonSerializable
-    with EquatableMixin {
+    with Equatable {
   SearchRepositories$Query$SearchResultItemConnection$SearchResultItem();
 
   factory SearchRepositories$Query$SearchResultItemConnection$SearchResultItem.fromJson(
@@ -76,7 +76,7 @@ class SearchRepositories$Query$SearchResultItemConnection$SearchResultItem
 @JsonSerializable(explicitToJson: true)
 class SearchRepositories$Query$SearchResultItemConnection
     extends JsonSerializable
-    with EquatableMixin {
+    with Equatable {
   SearchRepositories$Query$SearchResultItemConnection();
 
   factory SearchRepositories$Query$SearchResultItemConnection.fromJson(
@@ -95,7 +95,7 @@ class SearchRepositories$Query$SearchResultItemConnection
 }
 
 @JsonSerializable(explicitToJson: true)
-class SearchRepositories$Query extends JsonSerializable with EquatableMixin {
+class SearchRepositories$Query extends JsonSerializable with Equatable {
   SearchRepositories$Query();
 
   factory SearchRepositories$Query.fromJson(Map<String, dynamic> json) =>
@@ -111,7 +111,7 @@ class SearchRepositories$Query extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class SearchRepositoriesArguments extends JsonSerializable with EquatableMixin {
+class SearchRepositoriesArguments extends JsonSerializable with Equatable {
   SearchRepositoriesArguments({required this.query});
 
   @override

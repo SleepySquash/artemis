@@ -131,7 +131,7 @@ part 'query.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class SomeQuery$QueryResponse$DeprecatedObject extends JsonSerializable
-    with EquatableMixin {
+    with Equatable {
   SomeQuery$QueryResponse$DeprecatedObject();
 
   factory SomeQuery$QueryResponse$DeprecatedObject.fromJson(
@@ -152,7 +152,7 @@ class SomeQuery$QueryResponse$DeprecatedObject extends JsonSerializable
 
 @JsonSerializable(explicitToJson: true)
 class SomeQuery$QueryResponse$SomeObject extends JsonSerializable
-    with EquatableMixin {
+    with Equatable {
   SomeQuery$QueryResponse$SomeObject();
 
   factory SomeQuery$QueryResponse$SomeObject.fromJson(
@@ -172,7 +172,7 @@ class SomeQuery$QueryResponse$SomeObject extends JsonSerializable
 }
 
 @JsonSerializable(explicitToJson: true)
-class SomeQuery$QueryResponse extends JsonSerializable with EquatableMixin {
+class SomeQuery$QueryResponse extends JsonSerializable with Equatable {
   SomeQuery$QueryResponse();
 
   factory SomeQuery$QueryResponse.fromJson(Map<String, dynamic> json) =>

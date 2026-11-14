@@ -137,7 +137,7 @@ part 'query.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class BrowseArticles$Query$Article extends JsonSerializable
-    with EquatableMixin {
+    with Equatable {
   BrowseArticles$Query$Article();
 
   factory BrowseArticles$Query$Article.fromJson(Map<String, dynamic> json) =>
@@ -157,7 +157,7 @@ class BrowseArticles$Query$Article extends JsonSerializable
 }
 
 @JsonSerializable(explicitToJson: true)
-class BrowseArticles$Query extends JsonSerializable with EquatableMixin {
+class BrowseArticles$Query extends JsonSerializable with Equatable {
   BrowseArticles$Query();
 
   factory BrowseArticles$Query.fromJson(Map<String, dynamic> json) =>
@@ -181,7 +181,7 @@ enum ArticleType {
 }
 
 @JsonSerializable(explicitToJson: true)
-class BrowseArticlesArguments extends JsonSerializable with EquatableMixin {
+class BrowseArticlesArguments extends JsonSerializable with Equatable {
   BrowseArticlesArguments({this.article_type_in});
 
   @override

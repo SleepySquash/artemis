@@ -155,7 +155,7 @@ Spec classDefinitionToSpec(
         CodeExpression(Code('JsonSerializable(explicitToJson: true)')),
       )
       ..name = definition.name.namePrintable
-      ..mixins.add(refer('EquatableMixin'))
+      ..mixins.add(refer('Equatable'))
       ..mixins.addAll(definition.mixins.map((i) => refer(i.namePrintable)))
       ..methods.add(_propsMethod(props))
       ..extend = definition.extension != null
@@ -245,7 +245,7 @@ Spec generateArgumentClassSpec(QueryDefinition definition) {
       )
       ..name = '${definition.className}Arguments'
       ..extend = refer('JsonSerializable')
-      ..mixins.add(refer('EquatableMixin'))
+      ..mixins.add(refer('Equatable'))
       ..methods.add(
         _propsMethod(
           definition.inputs.map((input) => input.name.namePrintable),

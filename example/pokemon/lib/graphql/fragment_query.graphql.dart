@@ -14,7 +14,7 @@ mixin PokemonPartsMixin {
 
 @JsonSerializable(explicitToJson: true)
 class FragmentQuery$Query$Charmander extends JsonSerializable
-    with EquatableMixin, PokemonPartsMixin {
+    with Equatable, PokemonPartsMixin {
   FragmentQuery$Query$Charmander();
 
   factory FragmentQuery$Query$Charmander.fromJson(Map<String, dynamic> json) =>
@@ -29,7 +29,7 @@ class FragmentQuery$Query$Charmander extends JsonSerializable
 
 @JsonSerializable(explicitToJson: true)
 class FragmentQuery$Query$Pokemon$Evolutions extends JsonSerializable
-    with EquatableMixin, PokemonPartsMixin {
+    with Equatable, PokemonPartsMixin {
   FragmentQuery$Query$Pokemon$Evolutions();
 
   factory FragmentQuery$Query$Pokemon$Evolutions.fromJson(
@@ -46,7 +46,7 @@ class FragmentQuery$Query$Pokemon$Evolutions extends JsonSerializable
 
 @JsonSerializable(explicitToJson: true)
 class FragmentQuery$Query$Pokemon extends JsonSerializable
-    with EquatableMixin, PokemonPartsMixin {
+    with Equatable, PokemonPartsMixin {
   FragmentQuery$Query$Pokemon();
 
   factory FragmentQuery$Query$Pokemon.fromJson(Map<String, dynamic> json) =>
@@ -62,7 +62,7 @@ class FragmentQuery$Query$Pokemon extends JsonSerializable
 }
 
 @JsonSerializable(explicitToJson: true)
-class FragmentQuery$Query extends JsonSerializable with EquatableMixin {
+class FragmentQuery$Query extends JsonSerializable with Equatable {
   FragmentQuery$Query();
 
   factory FragmentQuery$Query.fromJson(Map<String, dynamic> json) =>
@@ -80,7 +80,7 @@ class FragmentQuery$Query extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class FragmentQueryArguments extends JsonSerializable with EquatableMixin {
+class FragmentQueryArguments extends JsonSerializable with Equatable {
   FragmentQueryArguments({required this.quantity});
 
   @override

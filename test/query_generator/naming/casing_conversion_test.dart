@@ -221,7 +221,7 @@ import 'package:gql/ast.dart';
 part 'query.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class SomeObject extends JsonSerializable with EquatableMixin {
+class SomeObject extends JsonSerializable with Equatable {
   SomeObject();
 
   factory SomeObject.fromJson(Map<String, dynamic> json) =>
@@ -254,7 +254,7 @@ class SomeObject extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class SomeQuery$Query extends JsonSerializable with EquatableMixin {
+class SomeQuery$Query extends JsonSerializable with Equatable {
   SomeQuery$Query();
 
   factory SomeQuery$Query.fromJson(Map<String, dynamic> json) =>
@@ -269,7 +269,7 @@ class SomeQuery$Query extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class Input extends JsonSerializable with EquatableMixin {
+class Input extends JsonSerializable with Equatable {
   Input({
     this.camelCaseField,
     this.pascalCaseField,
@@ -320,7 +320,7 @@ enum MyEnum {
 }
 
 @JsonSerializable(explicitToJson: true)
-class SomeQueryArguments extends JsonSerializable with EquatableMixin {
+class SomeQueryArguments extends JsonSerializable with Equatable {
   SomeQueryArguments({required this.filter});
 
   @override

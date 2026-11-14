@@ -26,7 +26,7 @@ mixin AttackMixin {
 
 @JsonSerializable(explicitToJson: true)
 class FragmentsGlob$Query$Pokemon$Pokemon extends JsonSerializable
-    with EquatableMixin, PokemonMixin {
+    with Equatable, PokemonMixin {
   FragmentsGlob$Query$Pokemon$Pokemon();
 
   factory FragmentsGlob$Query$Pokemon$Pokemon.fromJson(
@@ -43,7 +43,7 @@ class FragmentsGlob$Query$Pokemon$Pokemon extends JsonSerializable
 
 @JsonSerializable(explicitToJson: true)
 class FragmentsGlob$Query$Pokemon extends JsonSerializable
-    with EquatableMixin, PokemonMixin {
+    with Equatable, PokemonMixin {
   FragmentsGlob$Query$Pokemon();
 
   factory FragmentsGlob$Query$Pokemon.fromJson(Map<String, dynamic> json) =>
@@ -59,7 +59,7 @@ class FragmentsGlob$Query$Pokemon extends JsonSerializable
 }
 
 @JsonSerializable(explicitToJson: true)
-class FragmentsGlob$Query extends JsonSerializable with EquatableMixin {
+class FragmentsGlob$Query extends JsonSerializable with Equatable {
   FragmentsGlob$Query();
 
   factory FragmentsGlob$Query.fromJson(Map<String, dynamic> json) =>
@@ -76,7 +76,7 @@ class FragmentsGlob$Query extends JsonSerializable with EquatableMixin {
 
 @JsonSerializable(explicitToJson: true)
 class PokemonMixin$PokemonDimension extends JsonSerializable
-    with EquatableMixin, WeightMixin {
+    with Equatable, WeightMixin {
   PokemonMixin$PokemonDimension();
 
   factory PokemonMixin$PokemonDimension.fromJson(Map<String, dynamic> json) =>
@@ -91,7 +91,7 @@ class PokemonMixin$PokemonDimension extends JsonSerializable
 
 @JsonSerializable(explicitToJson: true)
 class PokemonMixin$PokemonAttack extends JsonSerializable
-    with EquatableMixin, PokemonAttackMixin {
+    with Equatable, PokemonAttackMixin {
   PokemonMixin$PokemonAttack();
 
   factory PokemonMixin$PokemonAttack.fromJson(Map<String, dynamic> json) =>
@@ -106,7 +106,7 @@ class PokemonMixin$PokemonAttack extends JsonSerializable
 
 @JsonSerializable(explicitToJson: true)
 class PokemonAttackMixin$Attack extends JsonSerializable
-    with EquatableMixin, AttackMixin {
+    with Equatable, AttackMixin {
   PokemonAttackMixin$Attack();
 
   factory PokemonAttackMixin$Attack.fromJson(Map<String, dynamic> json) =>

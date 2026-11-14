@@ -91,7 +91,7 @@ import 'package:gql/ast.dart';
 part 'query.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class SomeQuery$QueryResponse extends JsonSerializable with EquatableMixin {
+class SomeQuery$QueryResponse extends JsonSerializable with Equatable {
   SomeQuery$QueryResponse();
 
   factory SomeQuery$QueryResponse.fromJson(Map<String, dynamic> json) =>
